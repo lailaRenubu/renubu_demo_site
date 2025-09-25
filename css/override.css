@@ -1,0 +1,167 @@
+/* ================================
+   RENUBU LANDING PAGE OVERRIDES
+   ================================ */
+
+/* === GLOBAL STRIP DOWN === */
+.header-container .wrapper,
+.intro-section .wrapper,
+.testimonial-container .wrapper,
+.key-factors-intro .wrapper,
+.key-factors-columns .wrapper,
+.csm-duty-container .wrapper {
+  margin: 0 !important;
+  padding: 0 !important;
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+.header-container .wrapper .inner,
+.intro-section .wrapper .inner,
+.testimonial-container .wrapper .inner,
+.key-factors-intro .wrapper .inner,
+.key-factors-columns .wrapper .inner,
+.csm-duty-container .wrapper .inner {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+}
+
+.header-container .wrapper .inner > div,
+.intro-section .wrapper .inner > div,
+.testimonial-container .wrapper .inner > div,
+.key-factors-intro .wrapper .inner > div,
+.key-factors-columns .wrapper .inner > div,
+.csm-duty-container .wrapper .inner > div {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: auto !important;
+  flex: unset !important;
+  text-align: initial !important;
+}
+
+/* ================================
+   HEADER
+   ================================ */
+   .site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    min-height: 80px;
+    background: purple; /* or your background */
+  }
+  
+  .logo img {
+    max-height: 48px;
+    display: block;
+  }
+  
+  .btn-demo {
+    padding: 0.6rem 1.25rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    background: #007bff;
+    color: white;
+    text-decoration: none;
+  }
+  
+/* ================================
+   INTRO
+   ================================ */
+.intro-section {
+  text-align: center !important;
+  padding: 4rem 1.5rem !important;
+}
+
+.intro-section h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+#hero-cta-btn {
+  margin-top: 2rem !important;
+  display: flex !important;
+  justify-content: center !important;
+  gap: 1rem !important;
+}
+
+/* ================================
+   TESTIMONIALS
+   ================================ */
+.testimonial-container {
+  padding: 3rem 1.5rem !important;
+  max-width: 900px;
+  margin: 0 auto !important;
+}
+
+.testimonial {
+  text-align: left !important;
+  padding: 1.5rem !important;
+}
+
+.testimonial-text {
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.testimonial-author {
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+/* ================================
+   KEY FACTORS
+   ================================ */
+.key-factors-intro {
+  text-align: center !important;
+  padding: 3rem 1.5rem !important;
+}
+
+.key-factors-columns {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 2rem !important;
+  justify-content: center !important;
+  padding: 2rem 1.5rem !important;
+}
+
+.mental-col, .financial-col {
+  flex: 1 1 300px;
+  max-width: 500px;
+}
+
+/* ================================
+   CRM DUTIES
+   ================================ */
+.csm-duty-container {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 3rem !important;
+  padding: 4rem 1.5rem !important;
+}
+
+.old-csm-duties-title,
+.new-csm-duties-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.old-csm-duties-gallery,
+.new-csm-duties-gallery {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem !important;
+}
+
+/* ================================
+   FOOTER
+   ================================ */
+footer {
+  text-align: center !important;
+  padding: 2rem 1rem !important;
+  font-size: 0.875rem;
+  color: #aaa;
+}
+
+  

@@ -1,0 +1,371 @@
+/* ================================
+    =============================================================================   Global Theme Variables
+   ================================ */
+   :root {
+    --color-bg: #FBFFFE;
+    --color-white: #FFFFFF;
+    --color-gray: #475569;
+    --color-border: #E2E8F0;
+  
+    --color-green: #7ED95A;
+    --color-purple: #A78BFA;
+  
+    --font-body: Arial, sans-serif;
+  
+    --fs-hero: 3.5em;
+    --fs-h1: 2.5em;
+    --fs-h2: 2em;
+    --fs-body: 0.875em;
+  }
+  
+  /* Reset */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: var(--font-body);
+    line-height: 1.5;
+    font-size: var(--fs-body);
+    background: var(--color-bg);
+    color: var(--color-gray);
+  }
+  
+  /* ================================
+      =============================================================================   Header
+     ================================ */
+  .site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    min-height: 80px;
+    background: var(--color-white);
+    border-bottom: 1px solid var(--color-border);
+  }
+  
+  .logo img,
+  .renubu-logo img {
+    max-height: 48px;
+    display: block;
+  }
+  
+  .btn-demo,
+  .demo-btn {
+    padding: 0.6rem 1.25rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    background: var(--color-purple);
+    color: var(--color-white);
+    text-decoration: none;
+  }
+  
+  /* ================================
+      =============================================================================   Sections
+     ================================ */
+  section {
+    padding: 4rem 2rem;
+  }
+  
+  /* =============================================================================   Intro */
+  .intro-container h2 {
+    font-size: var(--fs-hero);
+    margin-bottom: 1rem;
+  }
+  
+  .intro-container p {
+    font-size: var(--fs-h2);
+    color: var(--color-gray);
+  }
+  
+  .btn-primary {
+    padding: 0.6rem 1.25rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    background: var(--color-green);
+    color: var(--color-white);
+    text-decoration: none;
+  }
+  
+  /* =============================================================================   Testimonials */
+  /* =========================
+   Testimonials Slideshow
+   ========================= */
+
+.testimonial-container {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+    box-sizing: border-box;
+    background: transparent; /* adjust if you want a card look */
+    border-radius: 10px;
+  }
+  
+  /* Slides wrapper */
+  .testimonial-slides-container {
+    position: relative;
+    width: 100%;
+    min-height: 480px; /* keeps height consistent */
+    overflow: hidden;
+  }
+  
+  /* Each slide */
+  .testimonial-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem;
+    box-sizing: border-box;
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+    pointer-events: none;
+  }
+  
+  .testimonial-slide.active {
+    opacity: 1;
+    pointer-events: auto;
+    position: relative; /* put active slide into normal flow */
+  }
+  
+  /* Avatar image */
+  .testimonial-avatar img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1.2rem;
+  }
+  
+  /* Quote content */
+  .testimonial-quote {
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    max-width: 650px;
+    text-align: center;
+    margin: 0 auto 1.5rem auto;
+    color: #e5e5e5;
+  }
+  
+  /* Author + Role */
+  .testimonial-author {
+    font-weight: 700;
+    margin-top: 0.5rem;
+    font-size: 1.1rem;
+    color: #fff;
+  }
+  
+  .testimonial-role {
+    font-size: 0.9rem;
+    color: #aaa;
+  }
+  
+  /* Company logo */
+  .testimonial-icon-wrapper img {
+    width: 110px;
+    height: auto;
+    margin-top: 1rem;
+    object-fit: contain;
+  }
+  
+  /* =========================
+     Controls (Arrows + Dots)
+     ========================= */
+  .testimonial-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2rem;
+    margin-top: 2rem;
+  }
+  
+  .testimonial-nav-btn {
+    background: rgba(0, 0, 0, 0.55);
+    border: none;
+    color: #fff;
+    font-size: 1.8rem;
+    line-height: 1;
+    padding: 0.4rem 0.9rem;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background 0.3s ease;
+  }
+  
+  .testimonial-nav-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+  }
+  
+  /* Indicator Dots */
+  .testimonial-dots {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .testimonial-dot {
+    width: 12px;
+    height: 12px;
+    background: #bbb;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .testimonial-dot.active {
+    background: #7ed95a; /* Renubu green highlight */
+  }
+  
+  
+  
+  /* =============================================================================   Key Factors */
+  .key-factors h2 {
+    font-size: var(--fs-h1);
+    margin-bottom: 2rem;
+  }
+  
+  .key-factors-columns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  
+  .mental-column,
+  .financial-column {
+    flex: 1 1 300px;
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    padding: 1.5rem;
+    border-radius: 8px;
+  }
+  
+  /* CRM Duties */
+  .csm-duty-container h2 {
+    font-size: var(--fs-h2);
+    margin: 2rem 0 1rem;
+  }
+  
+  .duties-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .duty {
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    padding: 1rem;
+    border-radius: 6px;
+  }
+  
+  /* =============================================================================   Footer */
+  .site-footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.875rem;
+    color: var(--color-gray);
+    border-top: 1px solid var(--color-border);
+  }
+
+  /* =============================================================================   Smart Slideshow */
+  .slideshow {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    background: #222;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  /* Slides */
+  .slide {
+    display: none;
+    padding: 2rem;
+    box-sizing: border-box;
+  }
+  .slide.active {
+    display: block;
+  }
+  
+  /* Controls */
+  .slide-controls {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    z-index: 10;
+  }
+  .slide-controls button {
+    background: rgba(0,0,0,0.6);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+  }
+  .slide-controls button:hover {
+    background: rgba(0,0,0,0.85);
+  }
+  
+  /* Indicators */
+  .slide-indicators {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+  }
+  .indicator {
+    width: 14px;
+    height: 14px;
+    background: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  .indicator.active {
+    background: #7ed95a; /* green highlight */
+  }
+  
+  /* legal */
+  .legal-section {
+    margin: 3rem auto;
+    max-width: 800px;
+    padding: 1rem;
+  }
+  
+  .legal-section details {
+    margin-bottom: 1rem;
+    border: 1px solid #333;
+    border-radius: 6px;
+    background: #111;
+    color: #eee;
+  }
+  
+  .legal-section summary {
+    cursor: pointer;
+    padding: 1rem;
+    font-weight: bold;
+    outline: none;
+  }
+  
+  .legal-content {
+    padding: 1rem;
+    border-top: 1px solid #333;
+  }
+  
