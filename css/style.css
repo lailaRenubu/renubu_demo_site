@@ -1,96 +1,304 @@
 /* ================================
     =============================================================================   Global Theme Variables
    ================================ */
-   :root {
+:root {
     --color-bg: #FBFFFE;
     --color-white: #FFFFFF;
     --color-gray: #475569;
     --color-border: #E2E8F0;
-  
+
     --color-green: #7ED95A;
     --color-purple: #A78BFA;
-  
+
     --font-body: Arial, sans-serif;
-  
+
     --fs-hero: 3.5em;
     --fs-h1: 2.5em;
     --fs-h2: 2em;
     --fs-body: 0.875em;
-  }
-  
-  /* Reset */
-  * {
+}
+
+/* Reset */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-  
-  body {
+}
+
+body {
     font-family: var(--font-body);
     line-height: 1.5;
     font-size: var(--fs-body);
-    background: var(--color-bg);
+    /* background: var(--color-bg); */
     color: var(--color-gray);
-  }
-  
-  /* ================================
+    /* background-color: #48BB78;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='0' x2='0' y1='0' y2='100%25' gradientTransform='rotate(240)'%3E%3Cstop offset='0' stop-color='%2348BB78'/%3E%3Cstop offset='1' stop-color='%232E1175'/%3E%3C/linearGradient%3E%3Cpattern patternUnits='userSpaceOnUse' id='b' width='540' height='450' x='0' y='0' viewBox='0 0 1080 900'%3E%3Cg fill-opacity='0.1'%3E%3Cpolygon fill='%23444' points='90 150 0 300 180 300'/%3E%3Cpolygon points='90 150 180 0 0 0'/%3E%3Cpolygon fill='%23AAA' points='270 150 360 0 180 0'/%3E%3Cpolygon fill='%23DDD' points='450 150 360 300 540 300'/%3E%3Cpolygon fill='%23999' points='450 150 540 0 360 0'/%3E%3Cpolygon points='630 150 540 300 720 300'/%3E%3Cpolygon fill='%23DDD' points='630 150 720 0 540 0'/%3E%3Cpolygon fill='%23444' points='810 150 720 300 900 300'/%3E%3Cpolygon fill='%23FFF' points='810 150 900 0 720 0'/%3E%3Cpolygon fill='%23DDD' points='990 150 900 300 1080 300'/%3E%3Cpolygon fill='%23444' points='990 150 1080 0 900 0'/%3E%3Cpolygon fill='%23DDD' points='90 450 0 600 180 600'/%3E%3Cpolygon points='90 450 180 300 0 300'/%3E%3Cpolygon fill='%23666' points='270 450 180 600 360 600'/%3E%3Cpolygon fill='%23AAA' points='270 450 360 300 180 300'/%3E%3Cpolygon fill='%23DDD' points='450 450 360 600 540 600'/%3E%3Cpolygon fill='%23999' points='450 450 540 300 360 300'/%3E%3Cpolygon fill='%23999' points='630 450 540 600 720 600'/%3E%3Cpolygon fill='%23FFF' points='630 450 720 300 540 300'/%3E%3Cpolygon points='810 450 720 600 900 600'/%3E%3Cpolygon fill='%23DDD' points='810 450 900 300 720 300'/%3E%3Cpolygon fill='%23AAA' points='990 450 900 600 1080 600'/%3E%3Cpolygon fill='%23444' points='990 450 1080 300 900 300'/%3E%3Cpolygon fill='%23222' points='90 750 0 900 180 900'/%3E%3Cpolygon points='270 750 180 900 360 900'/%3E%3Cpolygon fill='%23DDD' points='270 750 360 600 180 600'/%3E%3Cpolygon points='450 750 540 600 360 600'/%3E%3Cpolygon points='630 750 540 900 720 900'/%3E%3Cpolygon fill='%23444' points='630 750 720 600 540 600'/%3E%3Cpolygon fill='%23AAA' points='810 750 720 900 900 900'/%3E%3Cpolygon fill='%23666' points='810 750 900 600 720 600'/%3E%3Cpolygon fill='%23999' points='990 750 900 900 1080 900'/%3E%3Cpolygon fill='%23999' points='180 0 90 150 270 150'/%3E%3Cpolygon fill='%23444' points='360 0 270 150 450 150'/%3E%3Cpolygon fill='%23FFF' points='540 0 450 150 630 150'/%3E%3Cpolygon points='900 0 810 150 990 150'/%3E%3Cpolygon fill='%23222' points='0 300 -90 450 90 450'/%3E%3Cpolygon fill='%23FFF' points='0 300 90 150 -90 150'/%3E%3Cpolygon fill='%23FFF' points='180 300 90 450 270 450'/%3E%3Cpolygon fill='%23666' points='180 300 270 150 90 150'/%3E%3Cpolygon fill='%23222' points='360 300 270 450 450 450'/%3E%3Cpolygon fill='%23FFF' points='360 300 450 150 270 150'/%3E%3Cpolygon fill='%23444' points='540 300 450 450 630 450'/%3E%3Cpolygon fill='%23222' points='540 300 630 150 450 150'/%3E%3Cpolygon fill='%23AAA' points='720 300 630 450 810 450'/%3E%3Cpolygon fill='%23666' points='720 300 810 150 630 150'/%3E%3Cpolygon fill='%23FFF' points='900 300 810 450 990 450'/%3E%3Cpolygon fill='%23999' points='900 300 990 150 810 150'/%3E%3Cpolygon points='0 600 -90 750 90 750'/%3E%3Cpolygon fill='%23666' points='0 600 90 450 -90 450'/%3E%3Cpolygon fill='%23AAA' points='180 600 90 750 270 750'/%3E%3Cpolygon fill='%23444' points='180 600 270 450 90 450'/%3E%3Cpolygon fill='%23444' points='360 600 270 750 450 750'/%3E%3Cpolygon fill='%23999' points='360 600 450 450 270 450'/%3E%3Cpolygon fill='%23666' points='540 600 630 450 450 450'/%3E%3Cpolygon fill='%23222' points='720 600 630 750 810 750'/%3E%3Cpolygon fill='%23FFF' points='900 600 810 750 990 750'/%3E%3Cpolygon fill='%23222' points='900 600 990 450 810 450'/%3E%3Cpolygon fill='%23DDD' points='0 900 90 750 -90 750'/%3E%3Cpolygon fill='%23444' points='180 900 270 750 90 750'/%3E%3Cpolygon fill='%23FFF' points='360 900 450 750 270 750'/%3E%3Cpolygon fill='%23AAA' points='540 900 630 750 450 750'/%3E%3Cpolygon fill='%23FFF' points='720 900 810 750 630 750'/%3E%3Cpolygon fill='%23222' points='900 900 990 750 810 750'/%3E%3Cpolygon fill='%23222' points='1080 300 990 450 1170 450'/%3E%3Cpolygon fill='%23FFF' points='1080 300 1170 150 990 150'/%3E%3Cpolygon points='1080 600 990 750 1170 750'/%3E%3Cpolygon fill='%23666' points='1080 600 1170 450 990 450'/%3E%3Cpolygon fill='%23DDD' points='1080 900 1170 750 990 750'/%3E%3C/g%3E%3C/pattern%3E%3C/defs%3E%3Crect x='0' y='0' fill='url(%23a)' width='100%25' height='100%25'/%3E%3Crect x='0' y='0' fill='url(%23b)' width='100%25' height='100%25'/%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover; */
+
+    background-color: #2E1175;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='0' x2='0' y1='0' y2='100%25' gradientTransform='rotate(240)'%3E%3Cstop offset='0' stop-color='%232E1175'/%3E%3Cstop offset='1' stop-color='%2348BB78'/%3E%3C/linearGradient%3E%3Cpattern patternUnits='userSpaceOnUse' id='b' width='540' height='450' x='0' y='0' viewBox='0 0 1080 900'%3E%3Cg fill-opacity='0.1'%3E%3Cpolygon fill='%23444' points='90 150 0 300 180 300'/%3E%3Cpolygon points='90 150 180 0 0 0'/%3E%3Cpolygon fill='%23AAA' points='270 150 360 0 180 0'/%3E%3Cpolygon fill='%23DDD' points='450 150 360 300 540 300'/%3E%3Cpolygon fill='%23999' points='450 150 540 0 360 0'/%3E%3Cpolygon points='630 150 540 300 720 300'/%3E%3Cpolygon fill='%23DDD' points='630 150 720 0 540 0'/%3E%3Cpolygon fill='%23444' points='810 150 720 300 900 300'/%3E%3Cpolygon fill='%23FFF' points='810 150 900 0 720 0'/%3E%3Cpolygon fill='%23DDD' points='990 150 900 300 1080 300'/%3E%3Cpolygon fill='%23444' points='990 150 1080 0 900 0'/%3E%3Cpolygon fill='%23DDD' points='90 450 0 600 180 600'/%3E%3Cpolygon points='90 450 180 300 0 300'/%3E%3Cpolygon fill='%23666' points='270 450 180 600 360 600'/%3E%3Cpolygon fill='%23AAA' points='270 450 360 300 180 300'/%3E%3Cpolygon fill='%23DDD' points='450 450 360 600 540 600'/%3E%3Cpolygon fill='%23999' points='450 450 540 300 360 300'/%3E%3Cpolygon fill='%23999' points='630 450 540 600 720 600'/%3E%3Cpolygon fill='%23FFF' points='630 450 720 300 540 300'/%3E%3Cpolygon points='810 450 720 600 900 600'/%3E%3Cpolygon fill='%23DDD' points='810 450 900 300 720 300'/%3E%3Cpolygon fill='%23AAA' points='990 450 900 600 1080 600'/%3E%3Cpolygon fill='%23444' points='990 450 1080 300 900 300'/%3E%3Cpolygon fill='%23222' points='90 750 0 900 180 900'/%3E%3Cpolygon points='270 750 180 900 360 900'/%3E%3Cpolygon fill='%23DDD' points='270 750 360 600 180 600'/%3E%3Cpolygon points='450 750 540 600 360 600'/%3E%3Cpolygon points='630 750 540 900 720 900'/%3E%3Cpolygon fill='%23444' points='630 750 720 600 540 600'/%3E%3Cpolygon fill='%23AAA' points='810 750 720 900 900 900'/%3E%3Cpolygon fill='%23666' points='810 750 900 600 720 600'/%3E%3Cpolygon fill='%23999' points='990 750 900 900 1080 900'/%3E%3Cpolygon fill='%23999' points='180 0 90 150 270 150'/%3E%3Cpolygon fill='%23444' points='360 0 270 150 450 150'/%3E%3Cpolygon fill='%23FFF' points='540 0 450 150 630 150'/%3E%3Cpolygon points='900 0 810 150 990 150'/%3E%3Cpolygon fill='%23222' points='0 300 -90 450 90 450'/%3E%3Cpolygon fill='%23FFF' points='0 300 90 150 -90 150'/%3E%3Cpolygon fill='%23FFF' points='180 300 90 450 270 450'/%3E%3Cpolygon fill='%23666' points='180 300 270 150 90 150'/%3E%3Cpolygon fill='%23222' points='360 300 270 450 450 450'/%3E%3Cpolygon fill='%23FFF' points='360 300 450 150 270 150'/%3E%3Cpolygon fill='%23444' points='540 300 450 450 630 450'/%3E%3Cpolygon fill='%23222' points='540 300 630 150 450 150'/%3E%3Cpolygon fill='%23AAA' points='720 300 630 450 810 450'/%3E%3Cpolygon fill='%23666' points='720 300 810 150 630 150'/%3E%3Cpolygon fill='%23FFF' points='900 300 810 450 990 450'/%3E%3Cpolygon fill='%23999' points='900 300 990 150 810 150'/%3E%3Cpolygon points='0 600 -90 750 90 750'/%3E%3Cpolygon fill='%23666' points='0 600 90 450 -90 450'/%3E%3Cpolygon fill='%23AAA' points='180 600 90 750 270 750'/%3E%3Cpolygon fill='%23444' points='180 600 270 450 90 450'/%3E%3Cpolygon fill='%23444' points='360 600 270 750 450 750'/%3E%3Cpolygon fill='%23999' points='360 600 450 450 270 450'/%3E%3Cpolygon fill='%23666' points='540 600 630 450 450 450'/%3E%3Cpolygon fill='%23222' points='720 600 630 750 810 750'/%3E%3Cpolygon fill='%23FFF' points='900 600 810 750 990 750'/%3E%3Cpolygon fill='%23222' points='900 600 990 450 810 450'/%3E%3Cpolygon fill='%23DDD' points='0 900 90 750 -90 750'/%3E%3Cpolygon fill='%23444' points='180 900 270 750 90 750'/%3E%3Cpolygon fill='%23FFF' points='360 900 450 750 270 750'/%3E%3Cpolygon fill='%23AAA' points='540 900 630 750 450 750'/%3E%3Cpolygon fill='%23FFF' points='720 900 810 750 630 750'/%3E%3Cpolygon fill='%23222' points='900 900 990 750 810 750'/%3E%3Cpolygon fill='%23222' points='1080 300 990 450 1170 450'/%3E%3Cpolygon fill='%23FFF' points='1080 300 1170 150 990 150'/%3E%3Cpolygon points='1080 600 990 750 1170 750'/%3E%3Cpolygon fill='%23666' points='1080 600 1170 450 990 450'/%3E%3Cpolygon fill='%23DDD' points='1080 900 1170 750 990 750'/%3E%3C/g%3E%3C/pattern%3E%3C/defs%3E%3Crect x='0' y='0' fill='url(%23a)' width='100%25' height='100%25'/%3E%3Crect x='0' y='0' fill='url(%23b)' width='100%25' height='100%25'/%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    /* covers entire viewport */
+    inset: 0;
+    pointer-events: none;
+    /* so it won’t block clicks */
+    background: linear-gradient(to top,
+            #15134f 0%,
+            rgba(21, 19, 79, 0) 100%);
+    z-index: 0;
+    /* stays behind everything */
+}
+
+/* ================================
       =============================================================================   Header
      ================================ */
-  .site-header {
+.site-header {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
     min-height: 80px;
-    background: var(--color-white);
-    border-bottom: 1px solid var(--color-border);
-  }
-  
-  .logo img,
-  .renubu-logo img {
-    max-height: 48px;
-    display: block;
-  }
-  
-  .btn-demo,
-  .demo-btn {
+    background: transparent;
+    overflow: hidden;
+}
+
+/* Green fade (bottom-right) */
+.site-header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        circle at bottom right,
+        #42a86c 0%,               /* solid green at bottom-right */
+        rgba(66, 168, 108, 0) 70% /* fade out */
+    );
+    z-index: 0;
+}
+
+/* Purple fade (bottom-left) */
+.site-header::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        circle at bottom left,
+        #211e75 0%,               /* solid purple at bottom-left */
+        rgba(33, 30, 117, 0) 70%  /* fade out */
+    );
+    z-index: 0;
+}
+
+
+/* Keep content above */
+.site-header>* {
+    position: relative;
+    z-index: 1;
+}
+
+
+
+
+
+/* Middle nav (centered links) */
+.middle-nav {
+    flex: 1;
+    /* take up available space */
+    display: flex;
+    justify-content: center;
+    gap: 3.5rem;
+}
+
+/* White nav links */
+.middle-nav a {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.middle-nav a:hover {
+    color: var(--color-green);
+    /* highlight on hover */
+}
+
+/* Inverted demo button */
+.demo-btn {
+    padding: 0.8rem 1.75rem;
+    /* bigger size */
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 1rem;
+    /* slightly larger text */
+    background: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    /* white border */
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.demo-btn:hover {
+    background: #fff;
+    color: #211e75;
+    /* dark purple text when hovered */
+    cursor: pointer;
+}
+
+
+/* Right-hand demo button */
+.header-actions {
+    margin-left: auto;
+}
+
+/* Hide hamburger for now */
+.nav-toggle {
+    display: none;
+}
+
+
+/* .btn-demo,
+.demo-btn {
     padding: 0.6rem 1.25rem;
     border-radius: 9999px;
     font-weight: 600;
     background: var(--color-purple);
     color: var(--color-white);
     text-decoration: none;
-  }
-  
-  /* ================================
+} */
+
+.logo img,
+.renubu-logo img {
+    max-height: 70px;
+    display: block;
+}
+
+.renubu-logo {
+    position: relative;
+    display: inline-block;
+}
+
+.renubu-logo img {
+    max-height: 80px;
+    display: block;
+    transition: transform 0.3s ease-in-out;
+}
+
+.renubu-logo:hover img {
+    animation: pulse 1s infinite;
+}
+
+/* Sparkles (hidden by default) */
+.renubu-logo .sparkle {
+    position: absolute;
+    font-size: 0.8rem;
+    color: #fff;
+    pointer-events: none;
+    opacity: 0;
+    /* invisible by default */
+}
+
+/* When hovered, animate sparkles */
+.renubu-logo:hover .sparkle {
+    animation: sparkle 1.8s infinite;
+}
+
+/* Placement + staggered timing */
+.sparkle:nth-child(2) {
+    top: -10px;
+    left: 10%;
+    font-size: 0.9rem;
+    animation-delay: 0s;
+}
+
+.sparkle:nth-child(3) {
+    top: 0;
+    right: -12px;
+    font-size: 1rem;
+    animation-delay: 0.4s;
+}
+
+.sparkle:nth-child(4) {
+    bottom: -8px;
+    left: 20%;
+    font-size: 0.7rem;
+    animation-delay: 0.8s;
+}
+
+.sparkle:nth-child(5) {
+    bottom: 5px;
+    right: -15px;
+    font-size: 0.85rem;
+    animation-delay: 1.2s;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes sparkle {
+
+    0%,
+    100% {
+        opacity: 0;
+        transform: scale(0.5) rotate(0deg);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2) rotate(20deg);
+    }
+}
+
+
+/* ================================
       =============================================================================   Sections
      ================================ */
-  section {
+section {
     padding: 4rem 2rem;
-  }
-  
-  /* =============================================================================   Intro */
-  .intro-container h2 {
+}
+
+/* =============================================================================   Intro */
+.intro-container h2 {
     font-size: var(--fs-hero);
     margin-bottom: 1rem;
-  }
-  
-  .intro-container p {
+}
+
+.intro-container p {
     font-size: var(--fs-h2);
     color: var(--color-gray);
-  }
-  
-  .btn-primary {
+}
+
+.btn-primary {
     padding: 0.6rem 1.25rem;
     border-radius: 9999px;
     font-weight: 600;
     background: var(--color-green);
     color: var(--color-white);
     text-decoration: none;
-  }
-  
-  /* =============================================================================   Testimonials */
-  /* =========================
+}
+
+/* =============================================================================   Testimonials */
+/* =========================
    Testimonials Slideshow
    ========================= */
 
@@ -101,54 +309,57 @@
     margin: 0 auto;
     padding: 2rem;
     box-sizing: border-box;
-    background: transparent; /* adjust if you want a card look */
+    background: transparent;
+    /* adjust if you want a card look */
     border-radius: 10px;
-  }
-  
-  /* Slides wrapper */
-  .testimonial-slides-container {
+}
+
+/* Slides wrapper */
+.testimonial-slides-container {
     position: relative;
     width: 100%;
-    min-height: 480px; /* keeps height consistent */
+    min-height: 480px;
+    /* keeps height consistent */
     overflow: hidden;
-  }
-  
-  /* Each slide */
-  .testimonial-slide {
+}
+
+/* Each slide */
+.testimonial-slide {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     padding: 2rem;
     box-sizing: border-box;
-  
+
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-  
+
     opacity: 0;
     transition: opacity 0.6s ease-in-out;
     pointer-events: none;
-  }
-  
-  .testimonial-slide.active {
+}
+
+.testimonial-slide.active {
     opacity: 1;
     pointer-events: auto;
-    position: relative; /* put active slide into normal flow */
-  }
-  
-  /* Avatar image */
-  .testimonial-avatar img {
+    position: relative;
+    /* put active slide into normal flow */
+}
+
+/* Avatar image */
+.testimonial-avatar img {
     width: 90px;
     height: 90px;
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 1.2rem;
-  }
-  
-  /* Quote content */
-  .testimonial-quote {
+}
+
+/* Quote content */
+.testimonial-quote {
     font-style: italic;
     font-size: 1.05rem;
     line-height: 1.6;
@@ -156,41 +367,41 @@
     text-align: center;
     margin: 0 auto 1.5rem auto;
     color: #e5e5e5;
-  }
-  
-  /* Author + Role */
-  .testimonial-author {
+}
+
+/* Author + Role */
+.testimonial-author {
     font-weight: 700;
     margin-top: 0.5rem;
     font-size: 1.1rem;
     color: #fff;
-  }
-  
-  .testimonial-role {
+}
+
+.testimonial-role {
     font-size: 0.9rem;
     color: #aaa;
-  }
-  
-  /* Company logo */
-  .testimonial-icon-wrapper img {
+}
+
+/* Company logo */
+.testimonial-icon-wrapper img {
     width: 110px;
     height: auto;
     margin-top: 1rem;
     object-fit: contain;
-  }
-  
-  /* =========================
+}
+
+/* =========================
      Controls (Arrows + Dots)
      ========================= */
-  .testimonial-controls {
+.testimonial-controls {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1.2rem;
     margin-top: 2rem;
-  }
-  
-  .testimonial-nav-btn {
+}
+
+.testimonial-nav-btn {
     background: rgba(0, 0, 0, 0.55);
     border: none;
     color: #fff;
@@ -200,84 +411,85 @@
     cursor: pointer;
     border-radius: 6px;
     transition: background 0.3s ease;
-  }
-  
-  .testimonial-nav-btn:hover {
+}
+
+.testimonial-nav-btn:hover {
     background: rgba(0, 0, 0, 0.8);
-  }
-  
-  /* Indicator Dots */
-  .testimonial-dots {
+}
+
+/* Indicator Dots */
+.testimonial-dots {
     display: flex;
     gap: 8px;
-  }
-  
-  .testimonial-dot {
+}
+
+.testimonial-dot {
     width: 12px;
     height: 12px;
     background: #bbb;
     border-radius: 50%;
     cursor: pointer;
     transition: background 0.3s ease;
-  }
-  
-  .testimonial-dot.active {
-    background: #7ed95a; /* Renubu green highlight */
-  }
-  
-  
-  
-  /* =============================================================================   Key Factors */
-  .key-factors h2 {
+}
+
+.testimonial-dot.active {
+    background: #7ed95a;
+    /* Renubu green highlight */
+}
+
+
+
+/* =============================================================================   Key Factors */
+.key-factors h2 {
     font-size: var(--fs-h1);
     margin-bottom: 2rem;
-  }
-  
-  .key-factors-columns {
+}
+
+.key-factors-columns {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
-  }
-  
-  .mental-column,
-  .financial-column {
+}
+
+.mental-column,
+.financial-column {
     flex: 1 1 300px;
     background: var(--color-white);
     border: 1px solid var(--color-border);
     padding: 1.5rem;
     border-radius: 8px;
-  }
-  
-  /* CRM Duties */
-  .csm-duty-container h2 {
+}
+
+/* CRM Duties */
+.csm-duty-container h2 {
     font-size: var(--fs-h2);
     margin: 2rem 0 1rem;
-  }
-  
-  .duties-grid {
+}
+
+.duties-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 1.5rem;
-  }
-  
-  .duty {
+}
+
+.duty {
     background: var(--color-white);
     border: 1px solid var(--color-border);
     padding: 1rem;
     border-radius: 6px;
-  }
-  
-  /* =============================================================================   Footer */
-  .site-footer {
+}
+
+/* =============================================================================   Footer */
+.site-footer {
     text-align: center;
     padding: 2rem;
     font-size: 0.875rem;
     color: var(--color-gray);
     border-top: 1px solid var(--color-border);
-  }
+}
 
-  /* =============================================================================   Smart Slideshow */
-  .slideshow {
+/* =============================================================================   Smart Slideshow */
+.slideshow {
     position: relative;
     width: 100%;
     max-width: 900px;
@@ -285,20 +497,21 @@
     background: #222;
     border-radius: 8px;
     overflow: hidden;
-  }
-  
-  /* Slides */
-  .slide {
+}
+
+/* Slides */
+.slide {
     display: none;
     padding: 2rem;
     box-sizing: border-box;
-  }
-  .slide.active {
+}
+
+.slide.active {
     display: block;
-  }
-  
-  /* Controls */
-  .slide-controls {
+}
+
+/* Controls */
+.slide-controls {
     position: absolute;
     top: 50%;
     left: 0;
@@ -307,22 +520,24 @@
     justify-content: space-between;
     transform: translateY(-50%);
     z-index: 10;
-  }
-  .slide-controls button {
-    background: rgba(0,0,0,0.6);
+}
+
+.slide-controls button {
+    background: rgba(0, 0, 0, 0.6);
     border: none;
     color: white;
     font-size: 2rem;
     cursor: pointer;
     padding: 0.5rem 1rem;
     border-radius: 6px;
-  }
-  .slide-controls button:hover {
-    background: rgba(0,0,0,0.85);
-  }
-  
-  /* Indicators */
-  .slide-indicators {
+}
+
+.slide-controls button:hover {
+    background: rgba(0, 0, 0, 0.85);
+}
+
+/* Indicators */
+.slide-indicators {
     position: absolute;
     bottom: 15px;
     left: 50%;
@@ -330,42 +545,44 @@
     display: flex;
     gap: 8px;
     z-index: 10;
-  }
-  .indicator {
+}
+
+.indicator {
     width: 14px;
     height: 14px;
     background: #ccc;
     border-radius: 50%;
     cursor: pointer;
-  }
-  .indicator.active {
-    background: #7ed95a; /* green highlight */
-  }
-  
-  /* legal */
-  .legal-section {
+}
+
+.indicator.active {
+    background: #7ed95a;
+    /* green highlight */
+}
+
+/* legal */
+.legal-section {
     margin: 3rem auto;
     max-width: 800px;
     padding: 1rem;
-  }
-  
-  .legal-section details {
+}
+
+.legal-section details {
     margin-bottom: 1rem;
     border: 1px solid #333;
     border-radius: 6px;
     background: #111;
     color: #eee;
-  }
-  
-  .legal-section summary {
+}
+
+.legal-section summary {
     cursor: pointer;
     padding: 1rem;
     font-weight: bold;
     outline: none;
-  }
-  
-  .legal-content {
+}
+
+.legal-content {
     padding: 1rem;
     border-top: 1px solid #333;
-  }
-  
+}
