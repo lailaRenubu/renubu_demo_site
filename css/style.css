@@ -13,8 +13,8 @@
     --font-body: Arial, sans-serif;
 
     --fs-hero: 3.5em;
-    --fs-h1: 2.5em;
-    --fs-h2: 2em;
+    /* --fs-h1: 2.5em;
+    --fs-h2: 6em; */
     --fs-body: 0.875em;
 }
 
@@ -75,11 +75,12 @@ body::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: radial-gradient(
-        circle at bottom right,
-        #42a86c 0%,               /* solid green at bottom-right */
-        rgba(66, 168, 108, 0) 70% /* fade out */
-    );
+    background: radial-gradient(circle at bottom right,
+            #42a86c 0%,
+            /* solid green at bottom-right */
+            rgba(66, 168, 108, 0) 70%
+            /* fade out */
+        );
     z-index: 0;
 }
 
@@ -88,11 +89,12 @@ body::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: radial-gradient(
-        circle at bottom left,
-        #211e75 0%,               /* solid purple at bottom-left */
-        rgba(33, 30, 117, 0) 70%  /* fade out */
-    );
+    background: radial-gradient(circle at bottom left,
+            #211e75 0%,
+            /* solid purple at bottom-left */
+            rgba(33, 30, 117, 0) 70%
+            /* fade out */
+        );
     z-index: 0;
 }
 
@@ -165,16 +167,6 @@ body::before {
     display: none;
 }
 
-
-/* .btn-demo,
-.demo-btn {
-    padding: 0.6rem 1.25rem;
-    border-radius: 9999px;
-    font-weight: 600;
-    background: var(--color-purple);
-    color: var(--color-white);
-    text-decoration: none;
-} */
 
 .logo img,
 .renubu-logo img {
@@ -278,24 +270,174 @@ section {
 }
 
 /* =============================================================================   Intro */
-.intro-container h2 {
-    font-size: var(--fs-hero);
+
+.intro-container {
+    min-height: 100vh;
+    /* fill the whole viewport */
+    display: flex;
+    align-items: stretch;
+    /* let child stretch full height */
+    justify-content: center;
+    color: white;
+    /* background-color: blue; */
+    position: relative;
+  z-index: 1;
+}
+
+.intro-text h2 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    /* responsive scaling */
+    line-height: 1.2;
+    font-weight: 700;
+    /* bold for impact */
+    margin: 1rem 0;
+}
+
+.intro-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* pushes .title up, .below-title down */
+    flex: 1;
+    /* take all available height */
+    width: 100%;
+    text-align: center;
+    padding: 2rem;
+    /* background-color: fuchsia; */
+}
+
+
+.title {
+    margin-bottom: 2rem;
+    /* spacing buffer if needed */
+    /* background-color: green; */
+    height: 50%;
+}
+
+.below-title {
+    /* background-color: yellow; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10rem;
+    height: 50%;
+}
+
+/* .tech-container {
+    display: flex;
+    justify-content: space-between;
+    height: 40%;
+    width: 90%;
+    align-items: center;
+}
+
+.tech-container .tech {
+    width: 10%;
+    height: 50%;
+} */
+
+/* Tech logos: consistent spacing + max size */
+.tech-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem; /* space between logos */
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  
+  .tech {
+    padding: 0.75rem 1.5rem;        /* consistent “breathing room” around each logo */
+    flex: 0 1 auto;          /* flexible width, doesn’t force fixed boxes */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .tech img {
+    height: 90px;
+    width: auto;
+    max-width: 130px;
+    object-fit: contain;
+    display: block;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  .tech img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  
+  
+  /* Slightly enlarge Postgres + Supabase logos
+.logo-postgres,
+.logo-supabase {
+  height: 500px;   /* bigger than the default 60px 
+  max-width: 500px;
+} 
+*/
+.tech img[src*="supabase"],
+.tech img[src*="postgresql"] {
+  height: 120px !important;   /* bump up size */
+  max-width: 200px !important;
+}
+
+.tech img[src*="salesforce"] {
+    height: 150px !important;   /* bump up size */
+    max-width: 220px !important;
+  }
+
+  
+
+
+/* Subtitle styling */
+.subtitle-1, .below-title p  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 1rem;
-}
+    color: #fff;
+    font-size: 0.9rem;      /* smaller than the h2 */
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  .subtitle-1::before,
+  .subtitle-1::after,   .below-title p::before,
+  .below-title p::after {
+    content: "";
+    flex: 0 0 200px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+    margin: 0 1rem; /* spacing between line and text */
+  }
+  
 
-.intro-container p {
-    font-size: var(--fs-h2);
-    color: var(--color-gray);
-}
-
-.btn-primary {
-    padding: 0.6rem 1.25rem;
-    border-radius: 9999px;
-    font-weight: 600;
-    background: var(--color-green);
-    color: var(--color-white);
-    text-decoration: none;
-}
+  /* Intro section spacing and sizing tweaks */
+.subtitle-1 p {
+    margin-bottom: 0.25rem;  /* closer to the h2 */
+  }
+  
+  .intro-container h2 {
+    font-size: 2.5em;        /* bump from 2em → 2.5em */
+    line-height: 1.2;        /* tighter vertical spacing */
+  }
+  
+  .subtitle-2 p,
+  .below-title p {
+    font-size: 1.25rem;      /* larger than body (0.875em) */
+    line-height: 1.4;        /* optional for readability */
+  }
+  
+  /* Force bigger intro headline */
+.intro-container .title h2 {
+    font-size: 6em !important;
+    line-height: 1.2;
+  }
+  
 
 /* =============================================================================   Testimonials */
 /* =========================
