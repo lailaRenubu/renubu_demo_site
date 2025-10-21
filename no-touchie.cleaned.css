@@ -1,8 +1,6 @@
 :root{
     --background-height: 100vh;
     --viewport-height: 100vh;
-    --title-color: #2B136C;   /* deep purple for titles & subtitles */
-    --body-color:  #4C4C61;   /* slate for paragraphs & list text */
   }
   
 /* ===================== GLOBAL ===================== */
@@ -19,6 +17,28 @@ body {
     background: #f9f9f9;
     color: #222;
 } */
+
+html {
+    scroll-behavior: smooth;               /* smooth jump to #anchors */
+  }
+  
+  body {
+    scroll-snap-type: none;         /* mild snap between sections */
+  }
+
+  /* if/when you want snapping for specific sections, add .section on them and enable below: */
+/*
+body { scroll-snap-type: y proximity; }
+.section { scroll-snap-align: start; }
+*/
+  
+  /* any full-width section you want to snap */
+  .section {
+    scroll-snap-align: start;              /* snap to top when near it */
+    scroll-snap-stop: normal;
+    scroll-margin-top: 0;                  /* adjust if you have a fixed header */
+  }
+  
 
 html,
 body {
@@ -71,7 +91,6 @@ section {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 30px;
 }
 
 section>* {
@@ -258,15 +277,7 @@ section>* {
     margin-inline: auto;
 }
 
-.intro-container .intro-text p {
-    color: #4C4C61;
-    font-family: 'Roboto', sans-serif;
-    letter-spacing: .05rem;
-    font-size: var(--intro-p-size);
-    line-height: 1.5;
-    font-weight: 400;
-    margin: 0 0 1.5rem;
-}
+
 
 .intro-container .intro-text p:first-child {
     margin-top: 0;
@@ -283,92 +294,50 @@ section>* {
     align-items: flex-start;
 }
 
-.intro-container .intro-list ul {
-    flex: 0 1 auto;
-    width: 100%;
-    max-width: var(--intro-list-width);
-    text-align: left;
-    list-style: disc outside;
-    padding-left: 1.7rem;
-    margin: .5rem 0 1.1rem;
-
-    color: #4C4C61;
-    font-family: 'Roboto', sans-serif;
-    letter-spacing: .05rem;
-    font-size: var(--intro-ul-size);
-    line-height: 1.5;
-    font-weight: 500;
-}
-
-.intro-container .intro-list li {
-    font-size: clamp(var(--intro-li-min), 1.1vw, var(--intro-li-max));
-    line-height: 1.5;
-    margin: .25rem 0;
-}
 
 
 
-/* === Fancy list bullets (shared across sections) === */
-:root {
+
+
+
+/* === INTRO LIST ICONS — match newsite.html === */
+:root{
     /* knobs */
-    --intro-bullet-size: 1.25rem;                 /* circle size */
+    --intro-bullet-size: 1.25rem;                 /* icon circle size */
     --intro-bullet-gap: 0.5rem;                   /* space between icon & text */
-    --intro-li-line: 1.5em;                       /* line-height used for centering math */
-    --intro-bullet-top-nudge: 0em;                /* fine-tune vertical alignment */
     --intro-bullet-bg: rgba(89,126,252,0.102);    /* soft blue bg behind icon */
     --intro-bullet-svg: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20x%3D%220px%22%20y%3D%220px%22%20viewBox%3D%220%200%2040%2040%22%3E%3Cpath%20d%3D%22M2.6%2C20.8l1.5-1.5c0.2-0.2%2C0.5-0.2%2C0.7%2C0l11%2C11l21-21c0.2-0.2%2C0.5-0.2%2C0.7%2C0l1.5%2C1.5c0.2%2C0.2%2C0.2%2C0.5%2C0%2C0.7L15.8%2C34.7%20L2.6%2C21.5C2.4%2C21.3%2C2.4%2C21%2C2.6%2C20.8z%22%20fill%3D%22%23597EFC%22%20%2F%3E%3C%2Fsvg%3E");
-   /* layout */
-   --intro-list-width: 42rem;
-   --intro-text-width: 52ch; 
-}
-  
-  /* Reusable fancy bullets */
-  .fancy-list{
-    list-style: none;
-    padding-left: 0;
-    margin: .5rem 0 1.1rem;
-    text-align: left;
-  }
-  .fancy-list li{
-    display: flex;
-    align-items: flex-start;
-    gap: var(--intro-bullet-gap);
-    margin: .25rem 0;
-    line-height: var(--intro-li-line);
-  }
-  .fancy-list li::before{
-    content: '';
-    flex: 0 0 var(--intro-bullet-size);
-    min-width: var(--intro-bullet-size);
-    height: var(--intro-bullet-size);
-    border-radius: 50%;
-    background-color: var(--intro-bullet-bg);
-    background-image: var(--intro-bullet-svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 55%;
-    /* center the icon within the first line box */
-    margin-top: calc(
-      (var(--intro-li-line) - var(--intro-bullet-size)) / 2 + var(--intro-bullet-top-nudge)
-    );
   }
   
-  /* Reality column defaults to discs; neutralize when using .fancy-list */
-  .reality-right ul.fancy-list{
-    padding-left: 0;
-  }
-  
-  /* Optional: keep the intro list wrapper centered like before */
+  /* center the block; keep text left-aligned */
   .intro-container .intro-list{
     display: flex;
     justify-content: center;
     align-items: flex-start;
   }
-  /* Optional: constrain width of the list inside the intro wrapper */
-  .intro-container .intro-list .fancy-list{
-    width: 100%;
-    max-width: var(--intro-list-width, 42rem);
+  
+  /* we draw our own bullets, so remove default list-style */
+  
+  
+  /* make each item a small flex row (like newsite) */
+  
+  
+  /* the blue circular check icon (exact like your devtools block) */
+  
+  
+  /* knobs (no font changes) */
+:root{
+    --intro-bullet-size: 1.25rem;      /* your circle size */
+    --intro-bullet-gap: 0.5rem;        /* space between icon & text */
+    --intro-li-line: 1.5em;            /* the list's line-height (matches your 1.5) */
+    --intro-bullet-top-nudge: 0em;     /* fine trim: try ±0.05em if needed */
   }
+  
+  /* li is a flex row: [icon][text] */
+  
+  
+  /* the icon "bullet" */
+  
   
   
   
@@ -524,125 +493,19 @@ section>* {
     z-index: 3;
 }
 
-
-/* === Reusable typography + bullets (shared across sections) === */
-
-/* Big display title (already shared) */
-.title-display{
-    color: var(--title-color);
-    font-family: 'Manrope', sans-serif;
-    letter-spacing: .025rem;
-    font-size: 5em;
-    line-height: 1.125;
-    font-weight: 600;
-    margin: 0;
-    text-align: center;
-  }
-
-  .title-display--sub{
-    color: var(--title-color);
-    /* keep your weight/spacing tweaks here */
-  }
-
-  @media (max-width: 1200px){ .title-display{ font-size: 2.7em; } }
-@media (max-width: 1000px){ .title-display{ font-size: 2.4em; } }
-  
-  /* Wrap to center and constrain body width */
-  .lead-wrap{
-    text-align: center;
-    max-width: var(--intro-text-width);
-    margin-inline: auto;
-  }
-  
-  /* Body copy — now encodes the Intro look */
-  .lead-copy{
-    font-family: 'Roboto', sans-serif;
-    color: var(--body-color);
-    letter-spacing: .05rem;
-    font-size: var(--intro-p-size, 1.35em);
-    line-height: 1.5;
-    font-weight: 400;
-    margin: 0 0 1.5rem;
-  }
-  .lead-copy:first-child{ margin-top: 0; }
-  .lead-copy:last-child{  margin-bottom: 0; }
-
-  /* Reusable fancy bullets */
-.fancy-list{
-  list-style: none;
-  padding-left: 0;
-  margin: .5rem 0 1.1rem;
-  text-align: left;
-
-  /* intro body look for list text */
-  font-family: 'Roboto', sans-serif;
-  color: var(--body-color);
-  letter-spacing: .05rem;
-  line-height: 1.5;
-}
-.fancy-list li{
-  display: flex;
-  align-items: flex-start;
-  gap: var(--intro-bullet-gap);
-  margin: .25rem 0;
-  line-height: var(--intro-li-line);
-}
-.fancy-list li::before{
-  content: '';
-  flex: 0 0 var(--intro-bullet-size);
-  min-width: var(--intro-bullet-size);
-  height: var(--intro-bullet-size);
-  border-radius: 50%;
-  background-color: var(--intro-bullet-bg);
-  background-image: var(--intro-bullet-svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 55%;
-  margin-top: calc((var(--intro-li-line) - var(--intro-bullet-size)) / 2 + var(--intro-bullet-top-nudge));
-}
-
-/* When using .fancy-list in Reality, strip default UL padding */
-.reality-right ul.fancy-list{ padding-left: 0; }
-  
-  
-
 /* ===================== REALITY ===================== */
-.reality-container{
-    width: 90%;
-    background: #e4f2f8;
-    border: 1px solid rgba(0,0,0,.06);
-    border-radius: 16px;
-  
-    min-height: 80vh;
-    margin: 4rem auto;
-  
+.reality-container {
+    width: 100%;
+    background: #fff;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
     padding: 6rem 2rem;
     display: flex;
     justify-content: center;
-  
-    position: relative;
-    z-index: 1;
-    isolation: isolate;
-  
-    box-shadow: 0 10px 20px rgba(27, 6, 73, .12);
-  }
-  
-  
-  /* tighten on small screens so it doesn’t feel cramped */
-  @media (max-width: 900px){
-    .reality-container{
-      min-height: 78vh;
-      margin: 3rem 1rem;   /* a little less margin on mobile */
-      border-radius: 12px;
-    }
-  }
-
-.reality-right h2,
-.reality-right h3,
-.reality-right p,
-.reality-right li{
-/* let the classes above control color */
-    color: #4444c2;
+    min-height: 100vh;
+    position: relative;             /* NEW */
+    z-index: 1;                      /* NEW - sit above body::before (z:0) */
+    isolation: isolate;              /* NEW - create its own stacking context */
 }
 
 .reality-container>* {
@@ -662,20 +525,12 @@ section>* {
     margin: 0 auto;
 }
 
-.reality-left{
-    width: 100%;
-    aspect-ratio: 4 / 3;    /* try 16/9, 3/2, etc. */
+.reality-left {
+    flex: 0 1 45%;
+    min-height: 350px;
     background: #f2f2f2;
     border-radius: 12px;
-  }
-  
-  /* If you place an actual <img> inside */
-  .reality-left img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;       /* fills the box without distortion */
-    border-radius: inherit;
-  }
+}
 
 .reality-right {
     flex: 0 1 50%;
@@ -687,15 +542,12 @@ section>* {
 .reality-right h3 {
     text-transform: uppercase;
     font-weight: 600;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
+    color: #666;
     letter-spacing: 1px;
 }
 
-.reality-right h2 {
-    font-weight: 700;
-    margin-bottom: 1rem;
-    font-size: 3rem;
-}
+
 
 .reality-right ul {
     list-style: disc;
@@ -703,20 +555,13 @@ section>* {
     margin-bottom: 1rem;
 }
 
-.reality-right li {
-    margin-bottom: .5rem;
-    line-height: 1.5;
-}
 
-.reality-right p {
-    font-size: 1.25rem;
-    line-height: 1.6;
 
-}
+
 
 .reality-right p:last-of-type {
     font-style: italic;
-    /* color: #555; */
+    color: #555;
     align-self: flex-end;
 }
 
@@ -744,7 +589,7 @@ section>* {
     overflow: hidden;
     width: 100%;
     min-height: 100vh;
-    /* background: #f2f2fa; */
+    background: #fafafa;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -759,10 +604,9 @@ section>* {
 }
 
 .carousel-title h3 {
-    font-size: 3rem;
+    font-size: 1.8rem;
     font-weight: 600;
-    margin-bottom: 1.5rem;
-    /* color: #222; */
+    color: #222;
 }
 
 .cards,
@@ -775,10 +619,6 @@ section>* {
 }
 
 .card {
-      /* min 280px, prefer ~24vw, cap at 360px */
-  /* flex: 0 0 clamp(280px, 24vw, 360px);
-  min-width: clamp(280px, 24vw, 360px);  
-  max-width: clamp(280px, 24vw, 360px); */
     flex: 0 0 22%;
     min-width: 250px;
     max-width: 300px;
@@ -792,30 +632,20 @@ section>* {
 }
 
 .card img {
-    /* width: 64px;
+    width: 64px;
     height: 64px;
     object-fit: contain;
     margin-bottom: 1rem;
-    padding: .5rem; */
-
     background: #f5f5f5;
-  
-    
-    width: 100%;
-    aspect-ratio: 4 / 3;  /* try 16/9, 3/2, etc. */
-    object-fit: cover;
-    border-radius: 12px;
-    padding: 0;
-    background: transparent;
+    border-radius: 50%;
+    padding: .5rem;
 }
 
 .card p {
     font-size: 1rem;
-    /* color: #333; */
-    
+    color: #333;
     font-weight: 500;
 }
-
 
 .carousel-footer {
     text-align: center;
@@ -824,165 +654,159 @@ section>* {
 }
 
 .carousel-footer p {
-    font-size: 1.5rem;
-    /* color: #444; */
+    font-size: 1.2rem;
+    color: #444;
     font-weight: 500;
-    color: #2B136C;
 }
 
-@keyframes scrollCarousel {
-    0% {
-        transform: translateX(-25%);
-    }
+
 
     100% {
         transform: translateX(-75%);
     }
 }
 
+/* === Smooth marquee-style carousel === */
+.carousel-container { overflow: hidden; }
+
+.carousel-track {
+  display: flex;
+  gap: 2rem;
+  width: max-content;             /* content-sized row */
+  will-change: transform;
+  animation: scrollCarousel 30s linear infinite;
+}
+
+/* pause on hover to make it feel premium */
+
+
+/* GPU-friendly, no layout thrash */
+
+  to   { transform: translate3d(-50%, 0, 0); } /* we duplicated items in JS, so -50% loops seamlessly */
+}
+
+/* optional: fix card min widths to avoid shifting */
+.carousel-track .card {
+  flex: 0 0 220px;      /* pick a width that fits your design */
+}
+.carousel-track .card img {
+  display: block;
+  width: 100%;
+  height: 140px;        /* reserve height to prevent reflow when images load */
+  object-fit: cover;
+  background: #f3f3f3;  /* placeholder tint */
+}
+
+/* motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .carousel-track { animation: none; }
+}
+
+
 /* ===================== NEED NEW APPROACH ===================== */
-.need-new-approach-container{
-    /* card look */
-    --big-stat-side: clamp(7rem, 8vw, 10rem);
-    --big-stat-h2:   clamp(2rem, 2vw + 1rem, 3.5rem);
-    --big-stat-p:    clamp(1rem, 0.5vw + 0.75rem, 1.125rem);
-  
-    background: #5a3a59;
-    border: 1px solid #744c72;
-    border-radius: 16px;
-    box-shadow: 0 18px 40px rgba(26, 6, 28, .22);
-  
-    /* sizing/position */
-    /* min-height: 88vh; */
-    /* margin: 4rem auto; */
-    /* padding: 6rem 2rem; */
-
-    width: 90%;
-    margin: 3.5rem auto;  
-  
-     /* was 6rem 2rem */
-     padding: 4rem 2rem;
-    /* min-height is a floor; keep a gentle one */
-    min-height: 72vh;
-    /* stacking */
-    position: relative;
-    z-index: 1;
-    isolation: isolate;
-  
-    /* text on plum */
-    --title-color: #F7ECFF;
-    --body-color:  rgba(255,255,255,.88);
-  }
-
-  /* Match Reality’s inner width */
-.need-new-approach-container > *{
-    max-width: 1000px;   /* ← same number as Reality */
+.need-new-approach-container {
     width: 100%;
-    /* margin: 0 auto; */
-  }
-  
-  /* title & footer spacing */
-  .need-new-title{ 
-    margin: 0 0 1.75rem; 
-    font-size: 2rem;
-}
-  .need-new-footer{ 
-    margin-top: 2.0rem; 
-    width: 100%;
-}
-
-  .need-new-footer p{ 
-    margin: .25rem 0; 
-    color: var(--body-color); 
-    text-align: center;
-    font-size: 1.5rem;
-}
-  
-  /* 2-column layout: LEFT = cards, RIGHT = image (wider) */
-  .need-new-middle{
-    max-width: none;
-    width: 100%;
-    margin: 0 auto;
-  
-    display: grid;
-    grid-template-columns: 2fr 2fr;      /* left wider than right */
-    row-gap: 1rem; column-gap: 1rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-  }
-  .need-new-left,
-  .need-new-right{ min-width: 0; }       /* allow grid items to shrink */
-  
-  @media (max-width: 900px){
-    .need-new-middle{ grid-template-columns: 1fr; text-align: center; }
-  }
-  
-/* Let the column size to content normally */
-.need-new-right{
-    min-height: 0;                 /* cancel any earlier floor */
-    padding: .5rem;                /* small breathing room so max-height isn’t flush */
-  }
-  
-  /* Cap the image so it can't stretch the section */
-  .need-new-right img{
-    display: block;
-    max-width: 100%;
-    width: auto;                   /* don’t force width that inflates height */
-    height: auto;
-    max-height: clamp(450px, 32vh, 340px);  /* <-- the cap; tweak the numbers */
-    object-fit: contain;           /* keep aspect ratio inside the cap */
-    border-radius: 12px; 
-  }
-  
-  /* Optional: if the grid row is still tall, don't let the right column pull it */
-  .need-new-right{ 
-    align-self: center; 
-    justify-self: center;
-}     /* top-align the image column */
-  
-  /* left: stat cards grid */
-  .need-new-cards{
-    display: grid;
-    gap: .75rem;
-  }
-  @media (min-width: 900px){
-    .need-new-cards{ grid-template-columns: repeat(2, minmax(260px, 1fr)); }
-  }
-  
-  /* each card */
-  .need-new-card{
-    width: 100%;
-    height: 100%;
-    padding: 1rem .75rem;
-    display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
-  }
-  .need-new-card > * + *{ margin-top: .6rem; }
-
-  /* big stat square (Carrd look) */
-  .need-new-card .stat-box{
-    margin: 0 auto;
-    width: var(--big-stat-side);
-    height: var(--big-stat-side);
-    border-radius: 20px;
-    background: #00794B;
-    color: #F2F2FA;
-  
-    display: flex; align-items: center; justify-content: center;
-    font: 500 var(--big-stat-h2)/1 'Roboto', sans-serif;
-    font-size: 2.75rem;
-    letter-spacing: .05rem;
-  }
-  
-  /* caption text under stat */
-  .need-new-card .lead-copy{
-    max-width: 28ch;
-    margin: 15px 0 auto;
+    background: #fff;
+    padding: 6rem 4rem;
+    gap: 4rem;
     text-align: center;
-    color: var(--body-color);
-    letter-spacing: .05rem;
-    font-size: var(--big-stat-p);
+}
+
+.need-new-title h2 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #111;
+    max-width: 900px;
+    margin: 0 auto;
     line-height: 1.3;
-  }
-  
+}
+
+.need-new-middle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    width: 100%;
+}
+
+@media (min-width: 1000px) {
+    .need-new-middle {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+    }
+
+    .need-new-left {
+        width: 55%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .need-new-right {
+        width: 40%;
+        min-height: 450px;
+        background: #f5f5f5;
+        border-radius: 16px;
+    }
+}
+
+.need-new-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    justify-items: center;
+    width: 100%;
+}
+
+@media (min-width: 700px) {
+    .need-new-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.need-new-card {
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .05);
+    padding: 1.5rem 1rem;
+    width: 90%;
+    max-width: 300px;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .75rem;
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.need-new-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, .1);
+}
+
+.stat-box {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #111;
+    background: #f0f0f0;
+    border-radius: 10px;
+    padding: .5rem 1rem;
+}
+
+.need-new-card p {
+    font-size: .95rem;
+    color: #444;
+    line-height: 1.4;
+    text-align: center;
+}
 
 /* ===================== REINTRO (full-bleed hero) ===================== */
 .reintro-container {
@@ -992,15 +816,11 @@ section>* {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* background: #fff; */
+    background: #fff;
     padding: 6rem 0;
     text-align: center;
     gap: 3rem;
     overflow: hidden;
-
-    position: relative;
-  z-index: 2;
-  isolation: isolate;
 }
 
 .reintro-title {
@@ -1010,51 +830,28 @@ section>* {
 }
 
 .reintro-title h1 {
-    font-size: 4rem;
-    font-weight: 500;
-    color: #2B136C;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #111;
     margin-bottom: 1rem;
 }
 
 .reintro-title h2 {
     font-size: 1.6rem;
     font-weight: 400;
-    color: #8564e3;
+    color: #333;
     line-height: 1.4;
 }
 
-
-.reintro-image{
-  position: relative;
-  width: 65vw;          /* if this causes a tiny scrollbar, use 100% */
-  height: 65vh;
-  min-height: 550px;
-  margin-top: 2rem;
-
-  /* no placeholder visuals */
-  background: transparent;
-  border-radius: 16px;   /* optional: keep rounded frame */
-  overflow: hidden;      /* keep image edges neatly clipped */
-}
-
-/* make the <img> fill that frame and stay centered */
-.reintro-image img{
-  position: absolute;    /* anchor inside the frame */
-  inset: 0;              /* top/right/bottom/left: 0 */
-  width: 100%;
-  height: 100%;
-  object-fit: cover;     /* fills like a hero; use 'contain' if you prefer no crop */
-  object-position: center;
-  display: block;
-  border-radius: inherit;/* match the frame’s corners */
-}
-
-/* responsive heights you already had still apply */
-@media (max-width: 900px){
-  .reintro-image{ height: 45vh; min-height: 350px; }
-}
-@media (max-width: 600px){
-  .reintro-image{ height: 35vh; min-height: 280px; }
+.reintro-image {
+    width: 100vw;
+    height: 60vh;
+    min-height: 550px;
+    background: linear-gradient(135deg, #e8e8e8, #dcdcdc);
+    border-radius: 0;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, .08);
+    margin-top: 2rem;
+    transition: transform .4s ease, box-shadow .4s ease;
 }
 
 .reintro-image:hover {
@@ -1086,8 +883,8 @@ section>* {
 
 /* ===================== HOW IT WORKS ===================== */
 .how-it-works-container {
-    width: 90%;
-    min-height: 80vh;
+    width: 100%;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1097,13 +894,6 @@ section>* {
     gap: 4rem;
     text-align: center;
 }
-
-  /* Match Reality’s inner width */
-  .how-it-works-container > *{
-    max-width: 1000px;   /* ← same number as Reality */
-    width: 100%;
-    margin: 0 auto;
-  }
 
 .how-it-works-title h2 {
     font-size: 2.6rem;
@@ -1417,4 +1207,193 @@ footer p {
     .intro-container .right-card {
         margin-left: 0;
     }
+}
+
+/* reveal-on-scroll */
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 600ms ease, transform 600ms ease;
+    will-change: opacity, transform;
+  }
+  
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+/* ====== CLEANED/SHARED BLOCKS BELOW ====== */
+
+/* === SHARED: Typography + fancy bullets (Intro & Reality) === */
+:root {
+  --intro-bullet-size: 1.25rem;
+  --intro-bullet-gap: 0.5rem;
+  --intro-li-line: 1.5em;
+  --intro-bullet-top-nudge: 0em;
+  --intro-bullet-bg: rgba(89,126,252,0.102);
+  --intro-bullet-svg: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20x%3D%220px%22%20y%3D%220px%22%20viewBox%3D%220%200%2040%2040%22%3E%3Cpath%20d%3D%22M2.6%2C20.8l1.5-1.5c0.2-0.2%2C0.5-0.2%2C0.7%2C0l11%2C11l21-21c0.2-0.2%2C0.5-0.2%2C0.7%2C0l1.5%2C1.5c0.2-0.2%2C0.2%2C0.5%2C0%2C0.7L15.8%2C34.7%20L2.6%2C21.5C2.4%2C21.3%2C2.4%2C21%2C2.6%2C20.8z%22%20fill%3D%22%23597EFC%22%20%2F%3E%3C%2Fsvg%3E");
+  --intro-list-width: 42rem;
+  --intro-text-width: 52ch;
+}
+
+.title-display{
+  color: #2B136C;
+  font-family: 'Manrope', sans-serif;
+  letter-spacing: .025rem;
+  font-size: 5em;
+  line-height: 1.125;
+  font-weight: 600;
+  margin: 0;
+  text-align: center;
+}
+@media (max-width: 1200px){ .title-display{ font-size: 2.7em; } }
+@media (max-width: 1000px){ .title-display{ font-size: 2.4em; } }
+
+.lead-wrap{
+  text-align: center;
+  max-width: var(--intro-text-width);
+  margin-inline: auto;
+}
+.lead-copy{
+  font-family: 'Roboto', sans-serif;
+  color: #4C4C61;
+  letter-spacing: .05rem;
+  font-size: var(--intro-p-size, 1.35em);
+  line-height: 1.5;
+  font-weight: 400;
+  margin: 0 0 1.5rem;
+}
+.lead-copy:first-child{ margin-top: 0; }
+.lead-copy:last-child{  margin-bottom: 0; }
+
+.fancy-list{
+  list-style: none;
+  padding-left: 0;
+  margin: .5rem 0 1.1rem;
+  text-align: left;
+  font-family: 'Roboto', sans-serif;
+  color: #4C4C61;
+  letter-spacing: .05rem;
+  line-height: 1.5;
+}
+.fancy-list li{
+  display: flex;
+  align-items: flex-start;
+  gap: var(--intro-bullet-gap);
+  margin: .25rem 0;
+  line-height: var(--intro-li-line);
+}
+.fancy-list li::before{
+  content: '';
+  flex: 0 0 var(--intro-bullet-size);
+  min-width: var(--intro-bullet-size);
+  height: var(--intro-bullet-size);
+  border-radius: 50%;
+  background-color: var(--intro-bullet-bg);
+  background-image: var(--intro-bullet-svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 55%;
+  margin-top: calc((var(--intro-li-line) - var(--intro-bullet-size)) / 2 + var(--intro-bullet-top-nudge));
+}
+.reality-right ul.fancy-list{ padding-left: 0; }
+
+/* === INTRO layout only (uses shared classes for type/bullets) === */
+.intro-container{
+  width: 100%;
+  background: transparent;
+  padding: 6rem 2rem;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+.intro-inner{
+  width: 100%;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+.intro-title{ text-align: center; }
+.intro-list{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.intro-list .fancy-list{
+  width: 100%;
+  max-width: var(--intro-list-width);
+}
+
+/* === REALITY (opaque slab; uses shared classes) === */
+.reality-container{
+  width: 100%;
+  background: #fff;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  padding: 6rem 2rem;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+  isolation: isolate;
+}
+.reality-container > *{
+  max-width: 1000px;
+  width: 100%;
+}
+.reality-middle{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  gap: 4rem;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+}
+.reality-left{
+  flex: 0 1 45%;
+  min-height: 350px;
+  background: #f2f2f2;
+  border-radius: 12px;
+}
+.reality-right{
+  flex: 0 1 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.reality-right h3{
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #666;
+  letter-spacing: 1px;
+}
+@media (max-width: 900px){
+  .reality-middle{
+    flex-direction: column;
+    text-align: center;
+    gap: 3rem;
+  }
+  .reality-right,
+  .reality-left{
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+/* === CAROUSEL (GPU-friendly) === */
+.cards, .carousel-track {
+  display: flex;
+  gap: 2rem;
+  width: max-content;
+  animation: scrollCarousel 30s linear infinite;
+}
+@keyframes scrollCarousel {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
 }
