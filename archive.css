@@ -1,0 +1,244 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    /* ⬅️ Taller header */
+    padding: 0 3rem;
+    background-color: white;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    /* stays visible while scrolling (sticky) */
+    z-index: 10;
+}
+
+header button:hover {
+    background-color: #666;
+    transform: translateY(-1px);
+}
+
+
+
+/* Keep content above */
+.logo img {
+    height: 80px;
+    width: auto;
+}
+
+.chat-btn {
+    background-color: #6B46C1;
+    /* placeholder purple */
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 400;
+    padding: 0.9rem 2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.chat-btn:hover {
+    background-color: #553C9A;
+    transform: translateY(-1px);
+}
+
+
+
+/* ───────────── INTRO: grid layout, true right-bleed, fixed buttons ───────────── */
+
+/* Make the title sit higher and add weight */
+.intro-container {
+    padding: 0.5rem 4rem 2rem;   /* smaller top pad = higher title */
+  }
+  
+  .intro-title {
+    text-align: center;
+    margin: 0 auto 3rem;         /* generous space below title */
+  }
+  .intro-title h1 {
+    font-weight: 800;
+    line-height: 1.1;
+    font-size: 3.5rem;
+  }
+  
+  /* Use grid so columns feel even */
+  .intro-middle {
+    display: grid;
+    grid-template-columns: minmax(0, 42rem) 1fr; /* left fixed-ish, right flexible */
+    column-gap: 2.5rem;
+    align-items: start;
+    
+  }
+  
+  /* Left column (copy + bullets) */
+  .intro-left {
+    grid-column: 1;
+    min-width: 0;
+    text-align: left;
+  }
+  .intro-left p { margin: 0 0 0.5rem; }
+  
+  .intro-left ul {
+    list-style: disc;
+    list-style-position: outside;
+    padding-left: 1.25rem;   /* keeps text snug to bullet */
+    margin: 0.75rem 0 1.25rem;
+    text-align: left;
+  }
+  .intro-left li { margin: 0.25rem 0; }
+  
+  /* Right column (screenshot) — left edge stays at column start; right edge bleeds to viewport */
+  .intro-right {
+    grid-column: 2;
+    min-width: 0;
+    position: relative;
+    overflow: visible;
+  
+    /* make the element’s background reach the right edge, without shifting left edge */
+    margin-right: calc(50% - 50vw);    /* pull right edge to viewport edge */
+    padding-right: calc(50vw - 50%);   /* keep internal content aligned */
+    max-height: 60vh;                  /* no vertical overflow */
+    overflow-y: hidden;
+    border-radius: 12px;               /* optional */
+  }
+  
+  /* If you place media inside, allow it to extend to the new right edge */
+  .intro-right > img,
+  .intro-right > video,
+  .intro-right > canvas {
+    display: block;
+    width: calc(100% + (50vw - 50%));  /* extend only to the right */
+    max-width: none;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  /* ── Buttons in the intro: enforce the Carrd-style outline look ── */
+  .intro-container .intro-middle .intro-left .intro-buttons {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+  }
+  
+  .intro-container .intro-middle .intro-left .intro-buttons button {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid #7044CF;   /* outline */
+    background: transparent;
+    color: #2B136C;
+  
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    white-space: nowrap;
+  
+    width: 10rem;
+    height: 3.5rem;
+    line-height: 3.5rem;
+    padding: 0 0.5rem;
+    padding-left: calc(0.025rem + 0.5rem);
+    border-radius: 2rem;
+  
+    font-family: 'Manrope', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    letter-spacing: 0.025rem;
+    font-size: 1em;
+    font-weight: 300;
+  
+    transition:
+      transform 0.25s ease,
+      color 0.25s ease,
+      background-color 0.25s ease,
+      border-color 0.25s ease;
+  }
+  
+  .intro-container .intro-middle .intro-left .intro-buttons button:hover {
+    transform: translateY(-2px);
+    background-color: rgba(112, 68, 207, 0.08);
+  }
+  .intro-container .intro-middle .intro-left .intro-buttons button:active {
+    transform: translateY(0);
+  }
+  .intro-container .intro-middle .intro-left .intro-buttons button:focus-visible {
+    outline: 2px solid #7044CF;
+    outline-offset: 2px;
+  }
+
+
+
+
+
+  /* ========== INTRO CONTAINER ========== */
+.intro-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 3rem;
+}
+
+/* Title section */
+.intro-title h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+/* Middle layout (left text, right image placeholder) */
+.intro-middle {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    width: 100%;
+}
+
+/* Left column text */
+.intro-left {
+    flex: 1 1 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.intro-left ul {
+    list-style: disc;
+    margin-left: 1.5rem;
+}
+
+.intro-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.intro-buttons button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.intro-buttons button:hover {
+    background-color: #555;
+}
+
+/* Right column (image placeholder) */
+.intro-right {
+    flex: 1 1 450px;
+    min-height: 300px;
+    background-color: #eaeaea;
+    border-radius: 12px;
+}
+
+
+
+
+background: #f2f2fa; /* soft lavender base */
+
+
+background
