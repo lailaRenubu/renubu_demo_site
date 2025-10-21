@@ -22,12 +22,12 @@
             </svg>
         </button>
 
-            
+
 
     </header>
 
     <section id="intro-container" class="intro-container reveal">
-        
+
         <div class="intro-middle">
             <div class="intro-left">
                 <div class="intro-title">
@@ -61,7 +61,7 @@
                             <use xlink:href="#icon-e742d247c52c40ea9546d95fc0ead423"></use>
                         </svg></button>
                     <button
-                    onclick="document.getElementById('reality-container').scrollIntoView({ behavior: 'smooth' });">
+                        onclick="document.getElementById('reality-container').scrollIntoView({ behavior: 'smooth' });">
                         <span>Learn More</span>
                         <svg class="btn-icon" aria-hidden="true">
                             <use xlink:href="#icon-8a75e9205b2d7697ad826d592ebf05f0"></use> <!-- Arrow Down -->
@@ -82,10 +82,10 @@
         <div class="reality-middle">
             <div class="reality-left">
                 <!-- image of stressed girl -->
-              
-                    <img src="assets/the-reality.jpg" alt="">
-            
-                 
+
+                <img src="assets/the-reality.jpg" alt="">
+
+
             </div>
             <div class="reality-right">
                 <h3 class="title-display title-display--sub">The Reality?</h3>
@@ -97,12 +97,13 @@
                     <li> 1 in 2 feel burned out "constantly"</li>
                 </ul>
                 <div class="lead-wrap">
-                    <p class="lead-copy">"The Revenue pressure never really lets up. I'm always behind. I thought our job was to help
+                    <p class="lead-copy">"The Revenue pressure never really lets up. I'm always behind. I thought our
+                        job was to help
                         customers,
                         but now I'm not sure."</p>
                     <p class="lead-copy">- Enterprise CSM</p>
                 </div>
-              
+
             </div>
         </div>
     </section>
@@ -187,7 +188,7 @@
             </div>
             <div class="need-new-right">
                 <!-- an image will go here -->
-                 <img src="assets/new-approach.jpg" alt="">
+                <img src="assets/new-approach.jpg" alt="">
             </div>
 
         </div>
@@ -212,29 +213,53 @@
 
     <section id="how-it-works-container" class="how-it-works-container reveal">
         <div class="how-it-works-title">
-            <h2>How It Works</h2>
+            <h2 class="title-display">How It Works</h2>
             <div class="how-cards">
                 <div class="how-card">
                     <!-- a gif? -->
-                    <div class="how-img"></div>
+                    <div class="loop-vid">
+                        <video class="loop-vid__media" autoplay loop muted playsinline preload="metadata"
+                            poster="assets/myclip-frame.jpg">
+                            <!-- <source src="assets/myclip.webm" type="video/webm"> -->
+                            <source src="assets/howItWorks/surfaceRevenueInsights.mp4" type="video/mp4">
+                        </video>
+                    </div>
                     <h3>Surface Revenue Insights</h3>
                     <p>Gather data from across multiple channels:</p>
                 </div>
                 <div class="how-card">
                     <!-- a gif? -->
-                    <div class="how-img"></div>
+                    <div class="loop-vid">
+                        <video class="loop-vid__media" autoplay loop muted playsinline preload="metadata"
+                            poster="assets/myclip-frame.jpg">
+                            <!-- <source src="assets/myclip.webm" type="video/webm"> -->
+                            <source src="assets/howItWorks/launchAIWorkflows.mp4" type="video/mp4">
+                        </video>
+                    </div>
                     <h3>Launch AI Workflows</h3>
                     <p>Trigger AI workflows based on customer lifecycle:</p>
                 </div>
                 <div class="how-card">
                     <!-- a gif? -->
-                    <div class="how-img"></div>
+                    <div class="loop-vid">
+                        <video class="loop-vid__media" autoplay loop muted playsinline preload="metadata"
+                            poster="assets/myclip-frame.jpg">
+                            <!-- <source src="assets/myclip.webm" type="video/webm"> -->
+                            <source src="assets/howItWorks/optimizePricing.mp4" type="video/mp4">
+                        </video>
+                    </div>
                     <h3>Optimize Pricing & Strategy</h3>
                     <p>Recommend next steps and provide data-driven pricing</p>
                 </div>
                 <div class="how-card">
                     <!-- a gif? -->
-                    <div class="how-img"></div>
+                    <div class="loop-vid">
+                        <video class="loop-vid__media" autoplay loop muted playsinline preload="metadata"
+                            poster="assets/myclip-frame.jpg">
+                            <!-- <source src="assets/myclip.webm" type="video/webm"> -->
+                            <source src="assets/howItWorks/takeAction.mp4" type="video/mp4">
+                        </video>
+                    </div>
                     <h3>Take Action & Close The Loop</h3>
                     <p>Summarize plan, handle next steps, and follow up</p>
                 </div>
@@ -271,7 +296,14 @@
                     <li>Help shape the product vision</li>
                     <li>Preferential pricing for any subsequent purchase</li>
                 </ul>
-                <div class="calendly-widget"></div>
+                <!-- inside .calendly-right -->
+                <div class="calendly-widget">
+                    <div class="calendly-inline-widget"
+                        data-url="https://calendly.com/jstrackany/renubu?hide_event_type_details=1&hide_gdpr_banner=1&background_color=E1E2ED&text_color=230380&primary_color=6b45da">
+                    </div>
+                </div>
+
+
             </div>
 
         </div>
@@ -281,12 +313,17 @@
         <p>©2025 Renubu, Inc. All rights reserved.</p>
         <div class="socials-container">
             <div class="spotify">
-                <a class="n01" href="https://open.spotify.com/user/31phycnhbrm2ts3bnqevud63g6dq?si=203cb4b1f85042c5" role="button"><svg aria-labelledby="icons01-icon-1-title"><title id="icons01-icon-1-title">Spotify</title><use xlink:href="#icon-6f1173b99f06aa4855b8fd26db52c969"></use></svg><span class="label">Spotify</span></a>
+                <!-- <a class="n01" href="https://open.spotify.com/user/31phycnhbrm2ts3bnqevud63g6dq?si=203cb4b1f85042c5"
+                    role="button"><svg aria-labelledby="icons01-icon-1-title">
+                        <title id="icons01-icon-1-title">Spotify</title>
+                        <use xlink:href="#icon-6f1173b99f06aa4855b8fd26db52c969"></use>
+                    </svg><span class="label">Spotify</span></a> -->
             </div>
             <div class="email"></div>
             <div class="linkedin"></div>
         </div>
     </footer>
+    <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
     <script src="no-touchie.js"></script>
 </body>
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40"
