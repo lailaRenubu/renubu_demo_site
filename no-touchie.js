@@ -32,3 +32,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //     els.forEach(el => io.observe(el));
 //   })();
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('design-partner-form');
+  const status = form.querySelector('.form-status');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        status.hidden = false;
+        status.textContent = "Thanks! We’ve received your application.";
+        form.reset();
+      } else {
+        status.hidden = false;
+        status.textContent = "Hmm, something went wrong. Please try again.";
+      }
+    } catch {
+      status.hidden = false;
+      status.textContent = "Network error. Please try again.";
+    }
+  });
+});
+

@@ -273,29 +273,64 @@
         </div>
         <div class="calendly-middle">
             <div class="calendly-left">
-                <h3>Fill out the form below to
-                    apply to be a design partner, or if you'd like to see a demo
-                    (or just
-                    have a chat)
-                    , book a meeting to the right.
-                </h3>
-                <div class="design-partner-application-boxes">
-                    <div class="name-field"></div>
-                    <div class="company-name-field"></div>
-                    <div class="email-field"></div>
-                    <div class="messag-field"></div>
-                    <button>Join the Program</button>
-                </div>
-            </div>
-
-            <div class="calendly-right">
-                <h4>Design Partners Get:</h4>
-                <ul>
+                <h4>Apply below to be a Design Partner to get:</h4>
+                <ul class="fancy-list app-list">
                     <li>Extensive AI upgrades (yours to keep!)</li>
                     <li>Free access for the duration of the Program</li>
                     <li>Help shape the product vision</li>
                     <li>Preferential pricing for any subsequent purchase</li>
                 </ul>
+                <form id="design-partner-form" class="design-partner-application-boxes"
+                action="https://formspree.io/f/abcdwxyz" method="POST">
+
+                <div class="field">
+                    <!-- <label for="dp-name">Your name</label> -->
+                    <input type="text" id="dp-name" name="name" autocomplete="name" required placeholder="Your full name">
+                  </div>
+                
+                  <div class="field">
+                    <!-- <label for="dp-company">Company</label> -->
+                    <input type="text" id="dp-company" name="company" autocomplete="organization" placeholder="Company (optional)">
+                  </div>
+                
+                  <div class="field">
+                    <!-- <label for="dp-email">Work email</label> -->
+                    <input type="email" id="dp-email" name="email" autocomplete="email" required placeholder="name@company.com">
+                  </div>
+                
+                  <div class="field">
+                    <!-- <label for="dp-message">What would you like to achieve with Renubu?</label> -->
+                    <textarea id="dp-message" name="message" rows="5" maxlength="2000" placeholder="Tell us briefly about your goals…"></textarea>
+                  </div>
+                
+
+                <!-- Optional helpers -->
+                <input type="hidden" name="subject" value="Design Partner Application">
+                <div aria-hidden="true" style="position:absolute;left:-9999px;">
+                    <label for="dp-website">Leave this field empty</label>
+                    <input type="text" id="dp-website" name="website" tabindex="-1" autocomplete="off">
+                </div>
+
+                <button type="submit" class="primary">
+                    <span>Join the Program</span>
+                    <svg class="btn-icon" aria-hidden="true">
+                        <use xlink:href="#icon-67ad41ecc66a1b1cd00d0d3b20c00017"></use><!-- Arrow Down -->
+                    </svg>
+                </button>
+
+                <!-- Inline status text if you use the JS below -->
+                <p class="form-status" role="status" aria-live="polite" hidden></p>
+            </form>
+              
+
+            </div>
+
+            <div class="calendly-right">
+                <h3>If you'd like to see a demo
+                    <spoiler-text>(or just
+                        have a chat)</spoiler-text>, book a meeting below.
+                </h3>
+               
                 <!-- inside .calendly-right -->
                 <div class="calendly-widget">
                     <div class="calendly-inline-widget"
@@ -311,17 +346,49 @@
 
     <footer>
         <p>©2025 Renubu, Inc. All rights reserved.</p>
-        <div class="socials-container">
-            <div class="spotify">
-                <!-- <a class="n01" href="https://open.spotify.com/user/31phycnhbrm2ts3bnqevud63g6dq?si=203cb4b1f85042c5"
+        <ul class="socials-container">
+            <li class="spotify">
+                <a class="n01" href="https://open.spotify.com/user/31phycnhbrm2ts3bnqevud63g6dq?si=203cb4b1f85042c5"
+                    role="button">
+                        <svg aria-labelledby="icons01-icon-1-title">
+                        <title id="icons01-icon-1-title">Spotify</title>
+                        <use xlink:href="#icon-6f1173b99f06aa4855b8fd26db52c969"></use>
+                    </svg><span class="label">Spotify</span></a>
+                </li>
+            <li class="email">
+                <a class="n02" href="mailto:hello@renubu.com" role="button"><svg
+                    aria-labelledby="icons01-icon-2-title">
+                    <title id="icons01-icon-2-title">Email</title>
+                    <use xlink:href="#icon-c0646d28bbeb18e39eb973f96b44bd0f"></use>
+                </svg><span class="label">Email</span></a>
+            </li>
+            <li class="linkedin">
+                <a class="n03" href="https://linkedin.com/company/renubu" role="button"><svg
+                    aria-labelledby="icons01-icon-3-title">
+                    <title id="icons01-icon-3-title">LinkedIn</title>
+                    <use xlink:href="#icon-bf393d6ea48a4e69e1ed58a3563b94a5"></use>
+                </svg><span class="label">LinkedIn</span></a>
+            </li>
+        </ul>
+
+        <!-- <ul id="icons01" class="icons-component instance-1">
+            <li><a class="n01"
+                    href="https://open.spotify.com/user/31phycnhbrm2ts3bnqevud63g6dq?si=203cb4b1f85042c5"
                     role="button"><svg aria-labelledby="icons01-icon-1-title">
                         <title id="icons01-icon-1-title">Spotify</title>
                         <use xlink:href="#icon-6f1173b99f06aa4855b8fd26db52c969"></use>
-                    </svg><span class="label">Spotify</span></a> -->
-            </div>
-            <div class="email"></div>
-            <div class="linkedin"></div>
-        </div>
+                    </svg><span class="label">Spotify</span></a></li>
+            <li><a class="n02" href="mailto:hello@renubu.com" role="button"><svg
+                        aria-labelledby="icons01-icon-2-title">
+                        <title id="icons01-icon-2-title">Email</title>
+                        <use xlink:href="#icon-c0646d28bbeb18e39eb973f96b44bd0f"></use>
+                    </svg><span class="label">Email</span></a></li>
+            <li><a class="n03" href="https://linkedin.com/company/renubu" role="button"><svg
+                        aria-labelledby="icons01-icon-3-title">
+                        <title id="icons01-icon-3-title">LinkedIn</title>
+                        <use xlink:href="#icon-bf393d6ea48a4e69e1ed58a3563b94a5"></use>
+                    </svg><span class="label">LinkedIn</span></a></li>
+        </ul> -->
     </footer>
     <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
     <script src="no-touchie.js"></script>
