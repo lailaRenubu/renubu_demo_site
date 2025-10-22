@@ -569,7 +569,8 @@ section>* {
 .lead-wrap {
     text-align: center;
     max-width: var(--intro-text-width);
-    margin-inline: auto;
+    /* margin-inline: auto; */
+    margin: 0 auto;
 }
 
 /* Body copy — now encodes the Intro look */
@@ -779,7 +780,7 @@ section>* {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     padding: 6rem 2rem;
     gap: 2rem;
 }
@@ -792,7 +793,7 @@ section>* {
 .carousel-title h3 {
     font-size: 3rem;
     font-weight: 600;
-    margin-bottom: 1.5rem;
+    /* margin-bottom: 1rem; */
     /* color: #222; */
 }
 
@@ -800,17 +801,85 @@ section>* {
 .carousel-track {
     display: flex;
     gap: 2rem;
+    /* width: max-content; */
+    /* animation: scrollCarousel 30s linear infinite; */
+    /* animation-delay: -7.5s; */
+}
+
+.old-resp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.old-resp .cards {
+    animation: none;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+}
+
+.old-resp .lead-wrap {
+    max-width: none;
+}
+
+.new-resp {
+    display: flex;
+    margin-top: 0;
+    overflow: hidden;
+    align-items: stretch;
+
+    --gap: 20px;
+    gap: var(--gap);
+
+}
+
+.new-resp .lead-wrap {
+    max-width: none;
+    margin: 0;
+}
+
+.new-resp .cards {
+    gap: var(--gap);
+    display: flex;
+    flex: 0 0 auto;
+    animation: newresp-scroll 30s linear infinite;
+    /* animation: newresp-scroll var(--dur, 40s) linear infinite; */
+    will-change: transform;
+    flex-wrap: nowrap;
     width: max-content;
-    animation: scrollCarousel 30s linear infinite;
-    animation-delay: -7.5s;
+    /* padding: 0.5rem; */
+}
+
+/* .new-resp .cards:first-child{
+    background-color: yellow;
+}
+.new-resp .cards:last-child{
+    background-color: pink;
+} */
+
+.new-resp .card {
+    flex: 0 0 220px;
+    min-width: 200px;
+    max-width: 240px;
+    padding: 1rem 0.75rem;
+}
+
+.new-resp .card img {
+    aspect-ratio: 16 / 10;
+}
+
+.new-resp .card p {
+    font-size: 0.9rem;
+}
+
+.card.lead-copy {
+    margin: 0;
 }
 
 .card {
-    /* min 280px, prefer ~24vw, cap at 360px */
-    /* flex: 0 0 clamp(280px, 24vw, 360px);
-  min-width: clamp(280px, 24vw, 360px);  
-  max-width: clamp(280px, 24vw, 360px); */
-    flex: 0 0 22%;
+    flex: 0 0 280px;
     min-width: 250px;
     max-width: 300px;
     background: #fff;
@@ -820,18 +889,13 @@ section>* {
     padding: 2rem 1rem;
     text-align: center;
     transition: transform .3s ease, box-shadow .3s ease;
+
+    display: flex;
+    flex-direction: column;
 }
 
 .card img {
-    /* width: 64px;
-    height: 64px;
-    object-fit: contain;
-    margin-bottom: 1rem;
-    padding: .5rem; */
-
     background: #f5f5f5;
-
-
     width: 100%;
     aspect-ratio: 4 / 3;
     /* try 16/9, 3/2, etc. */
@@ -839,13 +903,20 @@ section>* {
     border-radius: 12px;
     padding: 0;
     background: transparent;
+    display: block;
 }
 
 .card p {
     font-size: 1rem;
-    /* color: #333; */
-
     font-weight: 500;
+    line-height: 1.5;
+    min-height: 3em;
+    margin: 0.5rem 0 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 1.5em;
+    line-height: 1.5;
 }
 
 
@@ -862,15 +933,12 @@ section>* {
     color: #2B136C;
 }
 
-@keyframes scrollCarousel {
-    0% {
-        transform: translateX(-25%);
-    }
-
-    100% {
-        transform: translateX(-75%);
+@keyframes newresp-scroll {
+    to {
+        transform: translateX(calc(-100% - var(--gap)));
     }
 }
+
 
 /* ===================== NEED NEW APPROACH ===================== */
 .need-new-approach-container {
@@ -930,6 +998,12 @@ section>* {
     color: var(--body-color);
     text-align: center;
     font-size: 1.5rem;
+}
+
+.need-new-footer .need-new-f3 {
+    margin-top: 1.5rem;
+    color: red;
+    /* background-color: red; */
 }
 
 /* 2-column layout: LEFT = cards, RIGHT = image (wider) */
@@ -1048,17 +1122,20 @@ section>* {
 
 /* ===================== REINTRO (full-bleed hero) ===================== */
 .reintro-container {
+    --img-top: 25%;      /* knob: how far down from the section top */
+    --img-width: 95vw;  /* knob: how big the image is */
     width: 100%;
-    min-height: 100vh;
+    min-height: 150vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     /* background: #fff; */
-    padding: 6rem 0;
+    /* padding: 6rem 0; */
+    padding: 12rem 0 6rem 0;
     text-align: center;
     gap: 3rem;
-    overflow: hidden;
+    overflow: visible;
 
     position: relative;
     z-index: 2;
@@ -1066,8 +1143,10 @@ section>* {
 }
 
 .reintro-title {
+    position: relative; z-index: 3;
     max-width: 900px;
     margin: 0 auto;
+    margin-bottom: 0;
     padding: 0 2rem;
 }
 
@@ -1087,59 +1166,34 @@ section>* {
 
 
 .reintro-image {
-    position: relative;
-    width: 65vw;
-    /* if this causes a tiny scrollbar, use 100% */
-    height: 65vh;
-    min-height: 550px;
-    margin-top: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem auto 0;
 
-    /* no placeholder visuals */
     background: transparent;
-    border-radius: 16px;
-    /* optional: keep rounded frame */
-    overflow: hidden;
-    /* keep image edges neatly clipped */
+
+    position: absolute;
+    left: 50%; transform: translateX(-50%);
+    top: var(--img-top, 55%);
+    width: var(--img-width, 140vw); max-width: none; height: auto;
+    z-index: 1;
+    pointer-events: none;
 }
 
 /* make the <img> fill that frame and stay centered */
 .reintro-image img {
-    position: absolute;
-    /* anchor inside the frame */
-    inset: 0;
-    /* top/right/bottom/left: 0 */
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* fills like a hero; use 'contain' if you prefer no crop */
-    object-position: center;
     display: block;
+    /* max-height: 80vh; */
+    object-fit: contain;
+    width: 100%;
+    height: auto;
+    display: block;
+    object-position: center;
     border-radius: inherit;
-    /* match the frame’s corners */
 }
 
-
-@media (max-width: 900px) {
-    .reintro-title h1 {
-        font-size: 2.2rem;
-    }
-
-    .reintro-title h2 {
-        font-size: 1.2rem;
-    }
-
-    .reintro-image {
-        height: 45vh;
-        min-height: 350px;
-    }
-}
-
-@media (max-width: 600px) {
-    .reintro-image {
-        height: 35vh;
-        min-height: 280px;
-    }
-}
 
 /* ===================== HOW IT WORKS (clean) ===================== */
 /* ✏️ knobs */
@@ -1171,10 +1225,10 @@ section>* {
 
 /* title */
 .how-it-works-title h2 {
-    font-size: 2.6rem;
-    font-weight: 700;
-    color: #111;
-    margin-bottom: 3rem;
+    font-size: 4rem;
+    font-weight: 500;
+    color: #2B136C;
+    margin-bottom: 1rem;
 }
 
 /* row of cards */
@@ -1345,9 +1399,20 @@ section>* {
 
     min-height: 80vh;
     width: 90%;
-    border: 1px solid rgba(0, 0, 0, .06);
+    /* border: 1px solid rgba(0, 0, 0, .06); */
     border-radius: 16px;
-    box-shadow: 0 10px 20px rgba(27, 6, 73, .12);
+    /* box-shadow: 0 10px 20px rgba(27, 6, 73, .12); */
+
+    --glow-1: #7E73FF;
+    --glow-2: #6B45DA;
+    --glow-3: #230380;
+
+
+background: linear-gradient(#e1e2ed, #e1e2ed) padding-box, linear-gradient(135deg, var(--glow-1), var(--glow-3)) border-box;
+
+/* border: 1px solid transparent; */
+
+box-shadow: 0 8px 24px rgba(107, 69, 218, 0.18), 0 16px 48px rgba(35, 3, 128, 0.20);
 }
 
 .calendly-title h1 {
@@ -1577,6 +1642,7 @@ section>* {
     /* box-shadow: none; */
     border: 0;
     margin-top: -40px;
+
 }
 
 /* Make the iframe fill the space cleanly */
@@ -1621,7 +1687,7 @@ section>* {
 }
 
 .calendly-left .btn-icon {
-    fill:  #F2F2FA;
+    fill: #F2F2FA;
 }
 
 
@@ -1687,7 +1753,7 @@ a {
 .socials-container svg {
     width: 1em;
     height: 1em;
-    fill:  #F2F2FA;
+    fill: #F2F2FA;
 }
 
 .socials-container .label {
