@@ -1,37 +1,30 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const cards = document.querySelector(".cards");
-    if (!cards) return;
-  
-    // Clone cards for seamless looping
-    const clone = cards.cloneNode(true);
-  
-    // Create the animated track
-    const track = document.createElement("div");
-    track.className = "carousel-track";
-  
-    // Merge both sets of cards (original + clone)
-    track.append(...cards.children, ...clone.children);
-  
-    // Swap into the DOM
-    cards.replaceWith(track);
-  });
-  
 
-//   (() => {
-//     const els = document.querySelectorAll('.reveal');
-//     if (!('IntersectionObserver' in window) || !els.length) return;
+// document.addEventListener('DOMContentLoaded', () => {
+//   const wrap = document.querySelector('.new-resp .cards');
+//   if (!wrap) return;
 
-//     const io = new IntersectionObserver((entries, obs) => {
-//       entries.forEach(entry => {
-//         if (entry.isIntersecting) {
-//           entry.target.classList.add('is-visible');
-//           obs.unobserve(entry.target); // reveal once; remove this line to re-animate on every visit
-//         }
-//       });
-//     }, { root: null, threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
+//   // 1) Duplicate the cards once for seamless looping
+//   const children = Array.from(wrap.children);
+//   children.forEach(node => wrap.appendChild(node.cloneNode(true)));
 
-//     els.forEach(el => io.observe(el));
-//   })();
+//   // 2) Set a sensible duration based on content width
+//   const container = document.querySelector('.new-resp');
+//   const pxPerSecond = 60; // tweak speed (higher = faster)
+//   const trackWidth = wrap.scrollWidth / 2; // original (pre-dup) width
+//   const dur = trackWidth / pxPerSecond;    // seconds to travel one "half"
+//   wrap.style.setProperty('--dur', `${Math.max(20, Math.min(dur, 80))}s`);
+
+//   // 3) Recompute on resize (debounced)
+//   let t;
+//   window.addEventListener('resize', () => {
+//     clearTimeout(t);
+//     t = setTimeout(() => {
+//       const w = wrap.scrollWidth / 2;
+//       const d = w / pxPerSecond;
+//       wrap.style.setProperty('--dur', `${Math.max(20, Math.min(d, 80))}s`);
+//     }, 150);
+//   });
+// });
 
 
 document.addEventListener('DOMContentLoaded', () => {
