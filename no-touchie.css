@@ -184,7 +184,7 @@ section>* {
     --intro-li-max: 1.35rem;
 
     --intro-text-width: 52ch;
-    --intro-list-width: 30ch;
+    --intro-list-width: 35ch;
 
     /* NEW: fine-grain nudges for the left column */
     --left-nudge-x: 0px;
@@ -408,8 +408,8 @@ section>* {
     background: transparent;
     color: #2B136C;
     font-family: 'Manrope', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-    font-size: 1rem;
-    font-weight: 300;
+    font-size: 1.2rem;
+    font-weight: 400;
     letter-spacing: .025rem;
     cursor: pointer;
     transition: transform .25s ease, color .25s ease, background-color .25s ease, border-color .25s ease;
@@ -997,12 +997,12 @@ section>* {
     margin: .25rem 0;
     color: var(--body-color);
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 2.0rem;
 }
 
 .need-new-footer .need-new-f3 {
     margin-top: 1.5rem;
-    color: red;
+    color: #FF8080;
     /* background-color: red; */
 }
 
