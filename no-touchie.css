@@ -1495,15 +1495,6 @@ section>* {
     min-width: 0;
 }
 
-/* allow grid items to shrink */
-
-@media (max-width: 900px) {
-    .need-new-middle {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-}
-
 /* Let the column size to content normally */
 .need-new-right {
     min-height: 0;
@@ -1538,12 +1529,6 @@ section>* {
 .need-new-cards {
     display: grid;
     gap: .75rem;
-}
-
-@media (min-width: 900px) {
-    .need-new-cards {
-        grid-template-columns: repeat(2, minmax(260px, 1fr));
-    }
 }
 
 /* each card */
@@ -1589,101 +1574,151 @@ section>* {
     line-height: 1.3;
 }
 
+/* ===================== NEED NEW APPROACH — small phones (≤479px) ===================== */
+@media (max-width: 479px){
 
-/* ===================== REINTRO (full-bleed hero) ===================== */
-.reintro-container {
-    --img-top: 25%;
-    /* knob: how far down from the section top */
-    --img-width: 95vw;
-    /* knob: how big the image is */
-    width: 100%;
-    min-height: 150vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
-    /* background: #fff; */
-    /* padding: 6rem 0; */
-    padding: 12rem 0 6rem 0;
-    text-align: center;
-    gap: 3rem;
-    overflow: visible;
-
-    position: relative;
-    z-index: 2;
-    isolation: isolate;
-}
-
-.reintro-title {
-    position: relative;
-    z-index: 3;
-    max-width: 900px;
-    margin: 0 auto;
-    margin-bottom: 0;
-    padding: 0 2rem;
-}
-
-.reintro-title h1 {
-    font-size: 4rem;
-    font-weight: 500;
-    color: #2B136C;
-    margin-bottom: 1rem;
-}
-
-.reintro-title h2 {
-    font-size: 1.6rem;
-    font-weight: 400;
-    color: #8564e3;
-    line-height: 1.4;
-}
-
-
-.reintro-image {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 2rem auto 0;
-
-    background: transparent;
-
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: var(--img-top, 55%);
-    width: var(--img-width, 140vw);
-    max-width: none;
-    height: auto;
-    z-index: 1;
-    pointer-events: none;
-}
-
-/* make the <img> fill that frame and stay centered */
-.reintro-image img {
-    display: block;
-    /* max-height: 80vh; */
-    object-fit: contain;
-    width: 100%;
-    height: auto;
-    display: block;
-    object-position: center;
-    border-radius: inherit;
-}
-
-@media (max-width: 480px) {
-    .reintro-container {
-        --img-top: 42%;
-        --img-width: 140vw;
+    /* Section shell */
+    .need-new-approach-container{
+      width: 96%;
+      margin: 2rem auto;
+      padding: 2rem 1rem;
+      min-height: auto;          /* let content define height on phones */
     }
-}
-
-@media (min-width: 1440px) {
-    .reintro-container {
-        --img-top: 34%;
-        --img-width: 110vw;
+  
+    /* Title */
+    .need-new-title{
+      margin: 0 0 1rem;
+      font-size: 1.5rem;         /* from 2rem desktop */
+      text-align: center;
     }
-}
+  
+    /* 2-col → 1-col; place left content only */
+    .need-new-middle{
+      grid-template-columns: 1fr;
+      row-gap: .75rem;
+      column-gap: 0;
+      align-items: start;
+    }
+  
+    /* Hide the right column (image) on mobile */
+    .need-new-right{ 
+      display: none !important; 
+    }
+  
+    /* Cards grid on mobile — compact two-up */
+    .need-new-cards{
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: .5rem;
+    }
+  
+    .need-new-card{
+      padding: .75rem .5rem;
+    }
+  
+    /* Stat square — smaller on phones */
+    .need-new-card .stat-box{
+      width: clamp(4.75rem, 30vw, 6rem);
+      height: clamp(4.75rem, 30vw, 6rem);
+      border-radius: 14px;
+      font-size: clamp(1.5rem, 7vw, 2rem); /* number inside the square */
+    }
+  
+    /* Caption under stat */
+    .need-new-card .lead-copy{
+      max-width: 20ch;
+      margin: .5rem 0 0;
+      font-size: 1rem;           /* from var(--big-stat-p) desktop */
+      line-height: 1.3;
+      text-align: center;
+    }
+  
+    /* Footer spacing/size */
+    .need-new-footer{
+      margin-top: 1rem;
+      width: 100%;
+    }
+    .need-new-footer p{
+      font-size: 1.2rem;         /* from 2.0rem desktop */
+      margin: 0;
+      text-align: center;
+    }
+    .need-new-footer .need-new-f3{
+      margin-top: .75rem;        /* tighter */
+    }
+  }
+/* ===================== NEED NEW APPROACH — small phones (≤479px) ===================== */
+@media (max-width: 479px){
 
+    /* Section shell */
+    .need-new-approach-container{
+      width: 96%;
+      margin: 2rem auto;
+      padding: 2rem 1rem;
+      min-height: auto;          /* let content define height on phones */
+    }
+  
+    /* Title */
+    .need-new-title{
+      margin: 0 0 1rem;
+      font-size: 1.5rem;         /* from 2rem desktop */
+      text-align: center;
+    }
+  
+    /* 2-col → 1-col; place left content only */
+    .need-new-middle{
+      grid-template-columns: 1fr;
+      row-gap: .75rem;
+      column-gap: 0;
+      align-items: start;
+    }
+  
+    /* Hide the right column (image) on mobile */
+    .need-new-right{ 
+      display: none !important; 
+    }
+  
+    /* Cards grid on mobile — compact two-up */
+    .need-new-cards{
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: .5rem;
+    }
+  
+    .need-new-card{
+      padding: .75rem .5rem;
+    }
+  
+    /* Stat square — smaller on phones */
+    .need-new-card .stat-box{
+      width: clamp(4.75rem, 30vw, 6rem);
+      height: clamp(4.75rem, 30vw, 6rem);
+      border-radius: 14px;
+      font-size: clamp(1.5rem, 7vw, 2rem); /* number inside the square */
+    }
+  
+    /* Caption under stat */
+    .need-new-card .lead-copy{
+      max-width: 20ch;
+      margin: .5rem 0 0;
+      font-size: 1rem;           /* from var(--big-stat-p) desktop */
+      line-height: 1.3;
+      text-align: center;
+    }
+  
+    /* Footer spacing/size */
+    .need-new-footer{
+      margin-top: 1rem;
+      width: 100%;
+    }
+    .need-new-footer p{
+      font-size: 1.2rem;         /* from 2.0rem desktop */
+      margin: 0;
+      text-align: center;
+    }
+    .need-new-footer .need-new-f3{
+      margin-top: .75rem;        /* tighter */
+    }
+  }
+    
 
 /* ===================== HOW IT WORKS (clean) ===================== */
 /* ✏️ knobs */
