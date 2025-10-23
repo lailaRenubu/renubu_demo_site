@@ -931,6 +931,7 @@ section>* {
     .fancy-list {
         text-align: left;
     }
+
     /* (this is already your default) */
 
 }
@@ -1043,104 +1044,117 @@ section>* {
     align-self: flex-end;
 }
 
-@media (max-width: 479px){
+@media (max-width: 479px) {
+
     /* Section wrapper */
-    .reality-container{
-      padding: 3rem 1.5rem;            /* safe side gutters */
-      gap: 1.25rem;               /* if you use CSS gap on the section */
+    .reality-container {
+        padding: 3rem 1.5rem;
+        /* safe side gutters */
+        gap: 1.25rem;
+        /* if you use CSS gap on the section */
     }
-  
+
     /* If you have a grid wrapper (mirror of intro) */
-    .reality-middle{
-      display: grid;
-      grid-template-columns: 1fr; /* stack columns */
-      grid-template-areas: "rlead" "rtitle" "limage"  "rbody";
-      row-gap: 1.25rem;
-      column-gap: 0;
-      height: auto;               /* avoid forcing tall rows on phones */
+    .reality-middle {
+        display: grid;
+        grid-template-columns: 1fr;
+        /* stack columns */
+        grid-template-areas: "rlead" "rtitle" "limage" "rbody";
+        row-gap: 1.25rem;
+        column-gap: 0;
+        height: auto;
+        /* avoid forcing tall rows on phones */
     }
-  
+
     /* Title tweaks */
-    .reality-title{
-      text-align: center;
-      margin-bottom: .75rem;
+    .reality-title {
+        text-align: center;
+        margin-bottom: .75rem;
     }
+
     .reality-title h2,
     .reality-title h3,
-    .reality-title .title-display{
-      font-size: clamp(1.6rem, 6.5vw, 2.2rem);
-      line-height: 1.2;
+    .reality-title .title-display {
+        font-size: clamp(1.6rem, 6.5vw, 2.2rem);
+        line-height: 1.2;
     }
-  
+
     /* Columns → remove desktop padding/nudges */
     .reality-left,
-    .reality-right{
-      padding: 0;
-      min-width: 0;
+    .reality-right {
+        padding: 0;
+        min-width: 0;
     }
-  
+
     /* Images/figures on the left: fill width, keep ratio */
     .reality-left img,
     .reality-left picture,
-    .reality-left figure img{
-      display: block;
-      width: 100%;
-      height: auto;
-      max-width: 100%;
-      border-radius: 12px; /* keep if you use rounded cards */
+    .reality-left figure img {
+        display: block;
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        border-radius: 12px;
+        /* keep if you use rounded cards */
     }
-  
+
     /* Body copy scale (if used here) */
     .reality-left .lead-copy,
-    .reality-right .lead-copy{
-      font-size: 1.05rem;
-      line-height: 1.5;
-      margin: 0 0 1rem;
+    .reality-right .lead-copy {
+        font-size: 1.05rem;
+        line-height: 1.5;
+        margin: 0 0 1rem;
     }
 
     .reality-right {
         display: contents;
     }
 
-    .reality-right > h2 {
+    .reality-right>h2 {
         grid-area: rtitle;
     }
-    .reality-right > h3 {
+
+    .reality-right>h3 {
         grid-area: rlead;
     }
-  
+
     /* Fancy list on the right: center the block, keep icon+text hugging */
-    .reality-right .fancy-list{
-      max-width: 34ch;            /* nice wrap width */
-      margin: .25rem auto .75rem; /* centers the list block */
-      padding-left: 0;
-      text-align: left;           /* IMPORTANT: keeps wraps under first line */
-      /* font-size: 0.95rem;; */
+    .reality-right .fancy-list {
+        max-width: 34ch;
+        /* nice wrap width */
+        margin: .25rem auto .75rem;
+        /* centers the list block */
+        padding-left: 0;
+        text-align: left;
+        /* IMPORTANT: keeps wraps under first line */
+        /* font-size: 0.95rem;; */
     }
-    .reality-right .fancy-list li{
-      display: flex;
-      justify-content: flex-start;
-      align-items: flex-start;
-      gap: var(--intro-bullet-gap);
-      line-height: var(--intro-li-line);
-      margin: .15rem 0;
+
+    .reality-right .fancy-list li {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: var(--intro-bullet-gap);
+        line-height: var(--intro-li-line);
+        margin: .15rem 0;
     }
-   
-    .reality-right .lead-wrap p:first-child{
+
+    .reality-right .lead-wrap p:first-child {
         /* background-color: pink; */
         font-size: 0.85rem;
         font-weight: 600;
         font-style: italic;
     }
-    .reality-right .lead-wrap p:last-child{
+
+    .reality-right .lead-wrap p:last-child {
         margin-top: 0;
         /* background-color: yellow; */
         font-size: 0.9rem;
         font-weight: 580;
     }
-  
-  }
-  
+
+}
+
 
 /* ===================== CAROUSEL ===================== */
 .carousel-container {
@@ -1304,110 +1318,127 @@ section>* {
 }
 
 /* ===================== CAROUSEL — small phones (≤479px) ===================== */
-@media (max-width: 479px){
+@media (max-width: 479px) {
 
     /* Section padding & title size */
-    .carousel-container{
-      padding: 2rem 1rem;
-      gap: 0.25rem;
-      min-height: auto;
+    .carousel-container {
+        padding: 2rem 1rem;
+        gap: 0.25rem;
+        min-height: auto;
     }
-    .carousel-title h3{
-      font-size: clamp(1.4rem, 6.5vw, 2rem);
-      margin-bottom: 1rem;
+
+    .carousel-title h3 {
+        font-size: clamp(1.4rem, 6.5vw, 2rem);
+        margin-bottom: 1rem;
     }
-  
+
     /* OLD (static) row — centered, wrap if needed, smaller cards */
-    .old-resp .cards{
-      flex-wrap: wrap;
-      justify-content: center;
-      column-gap: .75rem;
-      row-gap: 0rem;
-      margin-inline: auto;
-      background-color: white;
-      width: 100%;
-      border-radius: 16px;
-      padding: 1rem 0 0 0;
-    }
-    .old-resp .card{
-      flex: 0 1 44%;              /* two-up when possible */
-      min-width: 160px;
-      max-width: 220px;
-      /* padding: 1rem; */
-
-      background: transparent;
-       border: 0;
-      box-shadow: none;
-      
-
-      
-      padding: 0.5rem 0.8rem;
-    }
-    .old-resp .card img{ 
-        aspect-ratio: 4 / 3; 
+    .old-resp .cards {
+        flex-wrap: wrap;
+        justify-content: center;
+        column-gap: .75rem;
+        row-gap: 0rem;
+        margin-inline: auto;
+        background-color: white;
+        width: 100%;
+        border-radius: 16px;
+        padding: 1rem 0 0 0;
     }
 
-    .old-resp .card p{
+    .old-resp .card {
+        flex: 0 1 44%;
+        /* two-up when possible */
+        min-width: 160px;
+        max-width: 220px;
+        /* padding: 1rem; */
+
+        background: transparent;
+        border: 0;
+        box-shadow: none;
+
+
+
+        padding: 0.5rem 0.8rem;
+    }
+
+    .old-resp .card img {
+        aspect-ratio: 4 / 3;
+    }
+
+    .old-resp .card p {
         margin: 0.5rem 0 0;
         white-space: normal;
         overflow-wrap: anywhere;
-        font-size: 1rem; line-height: 1.35;
+        font-size: 1rem;
+        line-height: 1.35;
     }
 
-    .old-resp .card p span:nth-child(2){
+    .old-resp .card p span:nth-child(2) {
         display: block;
     }
-  
+
     /* NEW (marquee) — two tracks on one line, no overlap, smaller cards */
-    .new-resp{
-      display: flex;              /* keep both .cards on the same row */
-      gap: .75rem;                /* small gap between the two tracks */
-      overflow: hidden;
-    }
-    .new-resp .cards{
-        margin-top: 0.75rem;
-      display: flex;
-      flex-wrap: nowrap;
-      gap: .75rem;
-      flex: 0 0 auto;             /* prevent stretching */
-      width: max-content;         /* size to contents for smooth scroll */
-      animation-duration: 22s;    /* a bit faster on phones */
-    }
-    .new-resp .card{
-      flex: 0 0 180px;            /* smaller card width for mobile */
-      padding: 1rem;
-      border: 0;
-      box-shadow: none;
+    .new-resp {
+        display: flex;
+        /* keep both .cards on the same row */
+        gap: .75rem;
+        /* small gap between the two tracks */
+        overflow: hidden;
     }
 
-    .new-resp .card p{
+    .new-resp .cards {
+        margin-top: 0.75rem;
+        display: flex;
+        flex-wrap: nowrap;
+        gap: .75rem;
+        flex: 0 0 auto;
+        /* prevent stretching */
+        width: max-content;
+        /* size to contents for smooth scroll */
+        animation-duration: 22s;
+        /* a bit faster on phones */
+    }
+
+    .new-resp .card {
+        flex: 0 0 180px;
+        /* smaller card width for mobile */
+        padding: 1rem;
+        border: 0;
+        box-shadow: none;
+    }
+
+    .new-resp .card p {
         white-space: normal;
         overflow-wrap: anywhere;
-        font-size: 1rem; line-height: 1.35;
-     
+        font-size: 1rem;
+        line-height: 1.35;
+
     }
 
-    .new-resp .card p span:nth-child(2){
+    .new-resp .card p span:nth-child(2) {
         display: block;
     }
-  
+
     /* Footer line under carousel */
 
     .carousel-footer {
         /* font-size: 1.1rem; */
         margin-top: 1rem;
-      }
+    }
 
-    .carousel-footer p{
-      font-size: 1.1rem;
+    .carousel-footer p {
+        font-size: 1.1rem;
     }
-  
+
     /* Motion accessibility */
-    @media (prefers-reduced-motion: reduce){
-      .new-resp .cards{ animation: none !important; transform: none !important; }
+    @media (prefers-reduced-motion: reduce) {
+        .new-resp .cards {
+            animation: none !important;
+            transform: none !important;
+        }
     }
-  }
-  
+}
+
 
 
 /* ===================== NEED NEW APPROACH ===================== */
@@ -1574,151 +1605,360 @@ section>* {
     line-height: 1.3;
 }
 
+@media (min-width: 900px) {
+    .need-new-cards {
+        grid-template-columns: repeat(2, minmax(260px, 1fr));
+    }
+}
+
+@media (max-width: 900px) {
+    .need-new-middle {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}
+
+
 /* ===================== NEED NEW APPROACH — small phones (≤479px) ===================== */
-@media (max-width: 479px){
+@media (max-width: 479px) {
 
     /* Section shell */
-    .need-new-approach-container{
-      width: 96%;
-      margin: 2rem auto;
-      padding: 2rem 1rem;
-      min-height: auto;          /* let content define height on phones */
+    .need-new-approach-container {
+        width: 96%;
+        margin: 2rem auto;
+        padding: 2rem 1rem;
+        min-height: auto;
+        /* let content define height on phones */
     }
-  
+
     /* Title */
-    .need-new-title{
-      margin: 0 0 1rem;
-      font-size: 1.5rem;         /* from 2rem desktop */
-      text-align: center;
+    .need-new-title {
+        margin: 0 0 1rem;
+        font-size: 1.5rem;
+        /* from 2rem desktop */
+        text-align: center;
     }
-  
+
     /* 2-col → 1-col; place left content only */
-    .need-new-middle{
-      grid-template-columns: 1fr;
-      row-gap: .75rem;
-      column-gap: 0;
-      align-items: start;
+    .need-new-middle {
+        grid-template-columns: 1fr;
+        row-gap: .75rem;
+        column-gap: 0;
+        align-items: start;
     }
-  
+
     /* Hide the right column (image) on mobile */
-    .need-new-right{ 
-      display: none !important; 
+    .need-new-right {
+        display: none !important;
     }
-  
+
     /* Cards grid on mobile — compact two-up */
-    .need-new-cards{
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: .5rem;
+    .need-new-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: .5rem;
     }
-  
-    .need-new-card{
-      padding: .75rem .5rem;
+
+    .need-new-card {
+        padding: .75rem .5rem;
     }
-  
+
     /* Stat square — smaller on phones */
-    .need-new-card .stat-box{
-      width: clamp(4.75rem, 30vw, 6rem);
-      height: clamp(4.75rem, 30vw, 6rem);
-      border-radius: 14px;
-      font-size: clamp(1.5rem, 7vw, 2rem); /* number inside the square */
+    .need-new-card .stat-box {
+        width: clamp(4.75rem, 30vw, 6rem);
+        height: clamp(4.75rem, 30vw, 6rem);
+        border-radius: 14px;
+        font-size: clamp(1.5rem, 7vw, 2rem);
+        /* number inside the square */
     }
-  
+
     /* Caption under stat */
-    .need-new-card .lead-copy{
-      max-width: 20ch;
-      margin: .5rem 0 0;
-      font-size: 1rem;           /* from var(--big-stat-p) desktop */
-      line-height: 1.3;
-      text-align: center;
+    .need-new-card .lead-copy {
+        max-width: 20ch;
+        margin: .5rem 0 0;
+        font-size: 1rem;
+        /* from var(--big-stat-p) desktop */
+        line-height: 1.3;
+        text-align: center;
     }
-  
+
     /* Footer spacing/size */
-    .need-new-footer{
-      margin-top: 1rem;
-      width: 100%;
+    .need-new-footer {
+        margin-top: 1rem;
+        width: 100%;
     }
-    .need-new-footer p{
-      font-size: 1.2rem;         /* from 2.0rem desktop */
-      margin: 0;
-      text-align: center;
+
+    .need-new-footer p {
+        font-size: 1.2rem;
+        /* from 2.0rem desktop */
+        margin: 0;
+        text-align: center;
     }
-    .need-new-footer .need-new-f3{
-      margin-top: .75rem;        /* tighter */
+
+    .need-new-footer .need-new-f3 {
+        margin-top: .75rem;
+        /* tighter */
     }
-  }
+}
+
 /* ===================== NEED NEW APPROACH — small phones (≤479px) ===================== */
-@media (max-width: 479px){
+@media (max-width: 479px) {
 
     /* Section shell */
-    .need-new-approach-container{
-      width: 96%;
-      margin: 2rem auto;
-      padding: 2rem 1rem;
-      min-height: auto;          /* let content define height on phones */
+    .need-new-approach-container {
+        width: 96%;
+        margin: 2rem auto;
+        padding: 2rem 1rem;
+        min-height: auto;
+        /* let content define height on phones */
     }
-  
+
     /* Title */
-    .need-new-title{
-      margin: 0 0 1rem;
-      font-size: 1.5rem;         /* from 2rem desktop */
-      text-align: center;
+    .need-new-title {
+        margin: 0 0 1rem;
+        font-size: 1.5rem;
+        /* from 2rem desktop */
+        text-align: center;
     }
-  
+
     /* 2-col → 1-col; place left content only */
-    .need-new-middle{
-      grid-template-columns: 1fr;
-      row-gap: .75rem;
-      column-gap: 0;
-      align-items: start;
+    .need-new-middle {
+        grid-template-columns: 1fr;
+        row-gap: .75rem;
+        column-gap: 0;
+        align-items: start;
     }
-  
+
     /* Hide the right column (image) on mobile */
-    .need-new-right{ 
-      display: none !important; 
+    .need-new-right {
+        display: none !important;
     }
-  
+
     /* Cards grid on mobile — compact two-up */
-    .need-new-cards{
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: .5rem;
+    .need-new-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: .5rem;
     }
-  
-    .need-new-card{
-      padding: .75rem .5rem;
+
+    .need-new-card {
+        padding: .75rem .5rem;
     }
-  
+
     /* Stat square — smaller on phones */
-    .need-new-card .stat-box{
-      width: clamp(4.75rem, 30vw, 6rem);
-      height: clamp(4.75rem, 30vw, 6rem);
-      border-radius: 14px;
-      font-size: clamp(1.5rem, 7vw, 2rem); /* number inside the square */
+    .need-new-card .stat-box {
+        width: clamp(4.75rem, 30vw, 6rem);
+        height: clamp(4.75rem, 30vw, 6rem);
+        border-radius: 14px;
+        font-size: clamp(1.5rem, 7vw, 2rem);
+        /* number inside the square */
     }
-  
+
     /* Caption under stat */
-    .need-new-card .lead-copy{
-      max-width: 20ch;
-      margin: .5rem 0 0;
-      font-size: 1rem;           /* from var(--big-stat-p) desktop */
-      line-height: 1.3;
-      text-align: center;
+    .need-new-card .lead-copy {
+        max-width: 20ch;
+        margin: .5rem 0 0;
+        font-size: 1rem;
+        /* from var(--big-stat-p) desktop */
+        line-height: 1.3;
+        text-align: center;
     }
-  
+
     /* Footer spacing/size */
-    .need-new-footer{
-      margin-top: 1rem;
-      width: 100%;
+    .need-new-footer {
+        margin-top: 1rem;
+        width: 100%;
     }
-    .need-new-footer p{
-      font-size: 1.2rem;         /* from 2.0rem desktop */
-      margin: 0;
-      text-align: center;
+
+    .need-new-footer p {
+        font-size: 1.2rem;
+        /* from 2.0rem desktop */
+        margin: 0;
+        text-align: center;
     }
-    .need-new-footer .need-new-f3{
-      margin-top: .75rem;        /* tighter */
+
+    .need-new-footer .need-new-f3 {
+        margin-top: .75rem;
+        /* tighter */
     }
-  }
-    
+}
+
+/* ===================== REINTRO (full-bleed hero) ===================== */
+.reintro-container {
+    --img-top: 25%;
+    /* knob: how far down from the section top */
+    --img-width: 95vw;
+    /* knob: how big the image is */
+    width: 100%;
+    min-height: 150vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    /* background: #fff; */
+    /* padding: 6rem 0; */
+    padding: 12rem 0 6rem 0;
+    text-align: center;
+    gap: 3rem;
+    overflow: visible;
+
+    position: relative;
+    z-index: 2;
+    isolation: isolate;
+}
+
+.reintro-title {
+    position: relative;
+    z-index: 3;
+    max-width: 900px;
+    margin: 0 auto;
+    margin-bottom: 0;
+    padding: 0 2rem;
+}
+
+.reintro-title h1 {
+    font-size: 4rem;
+    font-weight: 500;
+    color: #2B136C;
+    margin-bottom: 1rem;
+}
+
+.reintro-title h2 {
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: #8564e3;
+    line-height: 1.4;
+}
+
+
+.reintro-image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem auto 0;
+
+    background: transparent;
+
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: var(--img-top, 55%);
+    width: var(--img-width, 140vw);
+    max-width: none;
+    height: auto;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* make the <img> fill that frame and stay centered */
+.reintro-image img {
+    display: block;
+    /* max-height: 80vh; */
+    object-fit: contain;
+    width: 100%;
+    height: auto;
+    display: block;
+    object-position: center;
+    border-radius: inherit;
+}
+
+/* ===================== REINTRO — small phones (≤479px) ===================== */
+@media (max-width: 479px) {
+
+    /* Section shell: let content size itself; add safe side padding */
+    .reintro-container {
+        min-height: auto;
+        /* desktop uses 100vh; phones can scroll */
+        padding: 2rem 1rem;
+        gap: 1.25rem;
+        overflow: visible;
+
+        grid-template-areas: "retitle" "reimage" "rbody";
+
+        min-height: 100vh;
+        min-height: 100svh;
+        /* wins on modern mobile for URL-bar-safe height */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .reality-right {
+        display: contents;
+    }
+
+    .reality-right>h2 {
+        grid-area: rtitle;
+    }
+
+    .reality-right>h3 {
+        grid-area: rlead;
+    }
+
+    /* Title sizing/spacing */
+    .reintro-title {
+        max-width: 40ch;
+        padding: 0;
+        margin: 0 auto;
+        margin-bottom: 0.75rem;
+    }
+
+    .reintro-title h1 {
+        font-size: clamp(2rem, 12vw, 2.6rem);
+        line-height: 1.2;
+        margin-bottom: .5rem;
+    }
+
+    .reintro-title h2 {
+        font-size: 1.05rem;
+        line-height: 1.4;
+        display: inline;
+        margin: 0'
+
+    }
+
+    /* Big image: keep centered, slightly overlap title area if desired */
+    .reintro-container {
+        --img-top: 48%;
+        /* was 30% on desktop; lower = further down */
+        --img-width: 120vw;
+        /* a bit larger than viewport for drama */
+    }
+
+    /* Reintro image container (put image back in flow + center it) */
+    .reintro-container .reintro-image {
+        position: static;
+        left: auto;
+        /* reset */
+        top: auto;
+        /* reset */
+        transform: none;
+        /* reset */
+        pointer-events: auto;
+        /* or remove this line entirely */
+        z-index: auto;
+        /* reset */
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 100%;
+        max-width: 540px;
+        /* optional cap; delete if you want full width */
+        margin: 1rem auto 0;
+    }
+
+    /* The <img> itself */
+    .reintro-container .reintro-image img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+}
+
 
 /* ===================== HOW IT WORKS (clean) ===================== */
 /* ✏️ knobs */
@@ -1864,8 +2104,8 @@ section>* {
     /* belt & suspenders matte */
 }
 
-/* responsive wrap rules you had */
-@media (max-width: 1400px) {
+
+/* @media (max-width: 1400px) {
     .how-cards {
         flex-wrap: wrap;
     }
@@ -1884,21 +2124,96 @@ section>* {
         width: 100%;
     }
 
-    /* let video span card on small screens */
+
 }
 
-/* Wider row container so 4 cards fit comfortably */
+
 @media (min-width: 1000px) {
     .how-cards {
         max-width: 1300px;
-        /* ✏️ bump until the clipping disappears */
+      
         margin: 0 auto;
         flex-wrap: nowrap;
         overflow: visible;
-        /* ensure no clipping */
+     
         justify-content: center;
-        /* center cards within the row */
+       
         gap: 75px;
+    }
+} */
+/* ===================== HOW IT WORKS — phones (≤479px) ===================== */
+@media (max-width: 479px) {
+
+    /* section shell */
+    .how-it-works-container {
+        min-height: auto;
+        /* let content define height on phones */
+        padding: 2rem 1rem;
+        gap: 1.25rem;
+    }
+
+    /* title */
+    .how-it-works-title h2 {
+        font-size: clamp(1.6rem, 13vw, 4rem);
+        line-height: 1.25;
+        margin: 0;
+    }
+
+    /* cards stack */
+    .how-cards {
+        flex-direction: column;
+        /* stack */
+        align-items: center;
+        /* center each card */
+        justify-content: flex-start;
+        max-width: 36rem;
+        /* keeps line length comfy */
+        overflow: visible;
+        /* no clipping on phones */
+
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+        justify-items: stretch;
+        align-items: stretch;
+        max-width: 34rem;
+    }
+
+    /* each card */
+    .how-card {
+        flex: 0 1 auto;
+        max-width: 28rem;
+        min-height: unset;
+        /* remove tall desktop floor */
+        padding: 1rem;
+        gap: .75rem;
+    }
+
+    .how-card h3 {
+        font-size: 1.5rem;
+        margin: .25rem 0;
+    }
+
+    .how-card p {
+        font-size: 0.8rem;
+        line-height: 1.5;
+        margin: .25rem 0;
+    }
+
+    /* video */
+    .how-card .loop-vid {
+        width: min(100%, 360px);
+        /* cap for small phones */
+        aspect-ratio: var(--how-vid-ratio, 16/9) / var(--how-vid-ratio-den, 1);
+        margin: 0 auto .5rem;
+    }
+
+    .how-card .loop-vid__media {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        /* no crop */
+        display: block;
     }
 }
 
@@ -2216,6 +2531,8 @@ section>* {
 }
 
 
+
+
 @media (max-width: 479px) {
     .calendly-middle {
         gap: 1.25rem;
@@ -2247,7 +2564,61 @@ section>* {
     }
 }
 
+@media (max-width: 479px){
+    .calendly-container{
+      padding: 1.25rem;
+      width: 85%;
+      border-radius: 14px;
+    }
+  
+    .calendly-title h1{
+      font-size: clamp(1.7rem, 7vw, 2.1rem);
+      margin-bottom: 1.25rem;
+    }
+  
+    .calendly-middle{
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;                 /* tighter */
+      max-width: 38rem;          /* keeps lines comfy */
+    }
+  
+    .calendly-left{
+      align-items: center;
+    }
 
+    .calendly-left h4{
+        font-size: 1.25rem;
+    }
+
+    .calendly-left ul li {
+        font-size: 1rem;
+    } 
+  
+    .design-partner-application-boxes{
+      max-width: 28rem;
+      width: 100%;
+      /* margin-top:0; */
+      /* padding: 0; */
+      gap: 0.25rem;
+    }
+  
+    .calendly-right h3{
+      font-size: 1.05rem;
+      line-height: 1.4;
+      margin: 1rem 0.5rem;
+    }
+  
+    .calendly-widget{
+      margin-top: 0;             /* kill the negative offset */
+    }
+  
+    /* Calendly recommends a fixed height; keep it generous but not huge */
+    .calendly-inline-widget{
+      height: 620px;
+    }
+  }
+  
 
 /* ===================== FOOTER ===================== */
 footer {

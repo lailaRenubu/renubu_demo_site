@@ -55,3 +55,37 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+
+(function(){
+  function setExpanded(btn, panel, expand){
+    btn.setAttribute('aria-expanded', String(expand));
+    if (expand){
+      panel.hidden = false;
+      panel.style.maxHeight = '0px';
+      panel.style.maxHeight = panel.scrollHeight + 'px';
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + 'px';
+      requestAnimationFrame(()=>{ panel.style.maxHeight = '0px'; });
+      panel.addEventListener('transitionend', function onEnd(){
+        panel.hidden = true; panel.removeEventListener('transitionend', onEnd);
+      });
+    }
+  }
+  document.querySelectorAll('.collapsible__toggle').forEach(btn=>{
+    const panel = document.querySelector(btn.getAttribute('data-target'));
+    if (!panel) return;
+    // collapsed by default (we only show these on mobile anyway)
+    setExpanded(btn, panel, false);
+    btn.addEventListener('click', ()=>{
+      setExpanded(btn, panel, btn.getAttribute('aria-expanded') !== 'true');
+    });
+    // keep height synced (Calendly loads async)
+    const ro = new ResizeObserver(()=>{
+      if (btn.getAttribute('aria-expanded') === 'true'){
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+      }
+    });
+    ro.observe(panel);
+  });
+})();
+
