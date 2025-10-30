@@ -1200,11 +1200,6 @@
     /* #endregion */
 
     /* #region --------------------------------------------- CAROUSEL */
-    .carousel-container  {
-        /* width: 100%; */
-        /* background-color: pink; */
-        /* width: 90vw; */
-    }
 
     .card {
         min-width:150px;
@@ -1220,6 +1215,28 @@
     }
 
 
+    /* #endregion */
+
+    /* #region --------------------------------------------- NEW APPROACH */
+    .need-new-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .need-new-right{
+        display: none;
+      }
+    /* #endregion */
+    
+    /* #region --------------------------------------------- REINTRO */
+    /* #endregion */
+    
+    /* #region --------------------------------------------- HOW IT WORKS */
+    /* #endregion */
+   
+    /* #region --------------------------------------------- CALENDLY */
+    /* #endregion */
+   
+    /* #region --------------------------------------------- FOOTER */
     /* #endregion */
 }
 
