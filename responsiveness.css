@@ -971,7 +971,7 @@
         justify-items: center;
         /* horizontal centering of each item */
         /* row-gap: clamp(12px, 2.5vw, 22px); */
-        row-gap: 3vh;
+        row-gap: 2.5vh;
 
     }
 
@@ -1018,7 +1018,7 @@
     .intro-right-other-screens .right-card {
         width: 100%;
         max-width: 70vw;
-        aspect-ratio: 16 / 9;
+        /* aspect-ratio: 16 / 9; */
         margin-inline: auto;
         overflow: hidden;
 
@@ -1057,6 +1057,7 @@
         object-fit: contain;
         /* or 'cover' for edge-to-edge */
         display: block;
+        padding: 10px;
     }
 
     /* List → Buttons */
