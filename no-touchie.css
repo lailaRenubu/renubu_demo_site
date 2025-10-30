@@ -49,30 +49,7 @@
 }
 
 
-@media (max-width: 479px) {
-    /* <= phones        */
-    /* ...styles... */
-}
 
-@media (min-width: 480px) and (max-width: 767px) {
-    /* phones+      */
-    /* ... */
-}
-
-@media (min-width: 768px) and (max-width: 1023px) {
-    /* tablets      */
-    /* ... */
-}
-
-@media (min-width: 1024px) and (max-width: 1439px) {
-    /* laptops      */
-    /* ... */
-}
-
-@media (min-width: 1440px) {
-    /* large desks  */
-    /* ... */
-}
 
 
 /* ===================== GLOBAL ===================== */
@@ -342,11 +319,9 @@ section>* {
     /* +→ moves right, -→ moves left */
     --left-nudge-y: -120px;
     /* negative lifts the left column up */
-}
-
-.intro-container {
     padding: 0;
 }
+
 
 .intro-container .intro-middle {
     width: 100vw;
@@ -359,6 +334,7 @@ section>* {
     align-items: center;
     height: var(--hero-h);
     overflow: visible;
+
 }
 
 .intro-container .intro-left,
@@ -370,10 +346,6 @@ section>* {
     padding-left: var(--edge-pad);
     position: relative;
     transform: translate(var(--left-nudge-x), var(--left-nudge-y));
-}
-
-.intro-container .intro-right {
-    padding-right: var(--edge-pad);
 }
 
 /* Left/title */
@@ -462,6 +434,8 @@ section>* {
 
 
 
+
+
 /* === Fancy list bullets (shared across sections) === */
 :root {
     /* knobs */
@@ -487,6 +461,11 @@ section>* {
     padding-left: 0;
     margin: .5rem 0 1.1rem;
     text-align: left;
+    /* intro body look for list text */
+    font-family: 'Roboto', sans-serif;
+    color: var(--body-color);
+    letter-spacing: .05rem;
+    line-height: 1.5;
 }
 
 .fancy-list li {
@@ -517,20 +496,11 @@ section>* {
     padding-left: 0;
 }
 
-/* Optional: keep the intro list wrapper centered like before */
-.intro-container .intro-list {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-}
-
 /* Optional: constrain width of the list inside the intro wrapper */
 .intro-container .intro-list .fancy-list {
     width: 100%;
     max-width: var(--intro-list-width, 42rem);
 }
-
-
 
 
 /* Buttons */
@@ -580,8 +550,11 @@ section>* {
 
 /* Right: wrapper-based pull/bleed/border */
 .intro-container .intro-right {
+    padding-right: var(--edge-pad);
     position: relative;
     overflow: visible;
+    height: 100%;
+    /* ← critical */
 }
 
 .intro-container .right-card {
@@ -622,66 +595,6 @@ section>* {
     padding: var(--shot-pad);
     display: block;
     z-index: 2;
-}
-
-/* Put these WITH your intro rules (not at the bottom) */
-
-/* 1) Make the grid row tall (already done) */
-.intro-container .intro-middle {
-    height: var(--hero-h);
-    align-items: center;
-    /* keep centered */
-}
-
-/* 2) Ensure the right column actually has that height */
-.intro-container .intro-right {
-    position: relative;
-    height: 100%;
-    /* ← critical */
-    overflow: visible;
-}
-
-/* 3) The wrapper inherits that height, so the image/border have a box */
-.intro-container .right-card {
-    position: relative;
-    height: 100%;
-    /* ← critical */
-    width: 100%;
-    overflow: visible;
-    border-radius: var(--card-radius);
-    margin-left: calc(-1 * var(--pair-pull));
-}
-
-/* 4) Image and border (unchanged) */
-.intro-container .right-card>img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100% !important;
-    width: calc(100% + var(--bleed-right));
-    object-fit: cover;
-    object-position: left;
-    border-radius: inherit;
-    padding: var(--shot-pad);
-    display: block;
-    z-index: 2;
-}
-
-.intro-container .right-card::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: calc(100% + var(--bleed-right));
-    height: 100%;
-    border-radius: var(--card-radius);
-    pointer-events: none;
-    box-shadow:
-        0 0 0 var(--card-border) #7B3FE4,
-        0 18px 40px rgba(123, 63, 228, .45),
-        inset 0 -10px 20px rgba(123, 63, 228, .38),
-        0 -10px 26px rgba(123, 63, 228, .45);
-    z-index: 3;
 }
 
 
@@ -741,47 +654,6 @@ section>* {
 
 .lead-copy:last-child {
     margin-bottom: 0;
-}
-
-/* Reusable fancy bullets */
-.fancy-list {
-    list-style: none;
-    padding-left: 0;
-    margin: .5rem 0 1.1rem;
-    text-align: left;
-
-    /* intro body look for list text */
-    font-family: 'Roboto', sans-serif;
-    color: var(--body-color);
-    letter-spacing: .05rem;
-    line-height: 1.5;
-}
-
-.fancy-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: var(--intro-bullet-gap);
-    margin: .25rem 0;
-    line-height: var(--intro-li-line);
-}
-
-.fancy-list li::before {
-    content: '';
-    flex: 0 0 var(--intro-bullet-size);
-    min-width: var(--intro-bullet-size);
-    height: var(--intro-bullet-size);
-    border-radius: 50%;
-    background-color: var(--intro-bullet-bg);
-    background-image: var(--intro-bullet-svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 55%;
-    margin-top: calc((var(--intro-li-line) - var(--intro-bullet-size)) / 2 + var(--intro-bullet-top-nudge));
-}
-
-/* When using .fancy-list in Reality, strip default UL padding */
-.reality-right ul.fancy-list {
-    padding-left: 0;
 }
 
 @media (max-width: 479px) {
@@ -907,6 +779,7 @@ section>* {
 
     /* Let the UL center itself; remove width cap on phones */
     .intro-container .intro-list .fancy-list {
+        width: 100%;
         max-width: none;
         text-align: center;
         /* centers the group; li will handle its own text */
@@ -2713,19 +2586,17 @@ a {
     .intro-container {
         --grid-right: clamp(22rem, 34vw, 30rem);
         --pair-pull: 120px;
+        --intro-text-width: 50ch;
+        --intro-list-width: 36ch;
     }
 
     .intro-container .intro-title h1 {
         font-size: 2.4em;
     }
 
-    .intro-container {
-        --intro-text-width: 50ch;
-        --intro-list-width: 36ch;
-    }
 }
 
-/* @media (max-width: 780px) {
+@media (max-width: 780px) {
     .intro-container {
         --pair-pull: 0px;
     }
@@ -2745,4 +2616,37 @@ a {
     .intro-container .right-card {
         margin-left: 0;
     }
-} */
+}
+
+@media (max-width: 479px) {
+    /* <= phones        */
+    /* ...styles... */
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+    /* phones+      */
+    /* ... */
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    /* tablets      */
+    /* ... */
+}
+
+@media (min-width: 1024px) and (max-width: 1439px) {
+    /* laptops      */
+    /* ... */
+}
+
+@media (min-width: 1600px) {
+    /* large desks  */
+    /* ... */
+
+    /* 0) Let the section own the clip, not the inner grid */
+/* .intro-container { overflow-x: hidden; }             */
+/* prevents page stretching */
+/* .intro-container .intro-middle { overflow: visible; }   */
+/* don't hide children */
+/* .intro-container .intro-right  { overflow: visible; }   */
+/* don't hide children */
+}
