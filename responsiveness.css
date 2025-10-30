@@ -925,7 +925,7 @@
 /* Tablet portrait only: remove bleed and keep everything inside the column */
 @media (min-width: 768px) and (max-width: 1023px) and (orientation: portrait) {
 
-    /* #region INTRO*/
+    /* #region --------------------------------------------- INTRO*/
     .intro-container {
         /* background-color: pink; */
         --left-nudge-y: 0px;
@@ -1081,7 +1081,7 @@
 
     /* #endregion */
 
-    /* #region REALITY */
+    /* #region --------------------------------------------- REALITY */
     .reality-container {
         padding: 3rem 1.5rem;
         /* safe side gutters */
@@ -1196,6 +1196,29 @@
         font-size: 1.1rem;
         font-weight: 580;
     }
+
+    /* #endregion */
+
+    /* #region --------------------------------------------- CAROUSEL */
+    .carousel-container  {
+        /* width: 100%; */
+        /* background-color: pink; */
+        /* width: 90vw; */
+    }
+
+    .card {
+        min-width:150px;
+        max-width: 200px;
+    }
+
+    .old-resp .card p span:nth-child(2) {
+        display: block;
+    }
+
+    .new-resp .card p span:nth-child(2) {
+        display: block;
+    }
+
 
     /* #endregion */
 }
