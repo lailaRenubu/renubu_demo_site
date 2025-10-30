@@ -1,11 +1,4 @@
-/* ==========================================================================
-   BREAKPOINTS (desktop-first; descending max-width overrides)
-   - Large Desktops:   ≥1440px  (base styles stay UNWRAPPED)
-   - Laptops & down:   ≤1439px  @media (max-width: 1439px) { ... }
-   - Tablets & down:   ≤1023px  @media (max-width: 1023px) { ... }
-   - Phones & down:    ≤767px   @media (max-width:  767px) { ... }
-   - Small phones:     ≤479px   @media (max-width:  479px) { ... }
-   ========================================================================== */
+
 
 
 :root {
@@ -238,7 +231,11 @@ section>* {
     /* negative lifts the left column up */
     padding: 0;
 }
-
+.intro-right-other-screen, 
+.intro-list-other-screens, 
+.right-card-other{
+    display:none;
+}
 
 .intro-container .intro-middle {
     width: 100vw;
