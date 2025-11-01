@@ -457,6 +457,75 @@
     </footer>
     <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
     <script src="no-touchie.js"></script>
+    <script>
+        // Inject styles into Calendly iframe for iPad Air (820px)
+        function styleCalendlyIframe() {
+            const windowWidth = window.innerWidth;
+
+            // Only apply for iPad Air width range (800-850px)
+            if (windowWidth >= 800 && windowWidth <= 850) {
+                const iframe = document.querySelector('.calendly-inline-widget iframe');
+
+                if (iframe) {
+                    try {
+                        const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+
+                        // Check if style tag already exists
+                        let styleTag = iframeDoc.getElementById('custom-calendly-styles');
+
+                        if (!styleTag) {
+                            styleTag = iframeDoc.createElement('style');
+                            styleTag.id = 'custom-calendly-styles';
+                            styleTag.textContent = `
+                                /* Hide cookie settings row */
+                                [class*="booking-kit_diagnostics-container"] {
+                                    display: none !important;
+                                }
+
+                                /* Increase main panel height */
+                                [class*="booking-kit_main-panel"] {
+                                    height: 635px !important;
+                                }
+
+                                /* Shift layout container up */
+                                #layout-container {
+                                    transform: translateY(-15px) !important;
+                                }
+                            `;
+                            iframeDoc.head.appendChild(styleTag);
+                        }
+                    } catch(e) {
+                        console.log('Cannot access Calendly iframe (CORS restriction):', e.message);
+                    }
+                }
+            }
+        }
+
+        // Try to inject styles when iframe loads
+        window.addEventListener('load', function() {
+            // Wait a bit for Calendly to fully load
+            setTimeout(styleCalendlyIframe, 1000);
+
+            // Also observe for iframe changes
+            const observer = new MutationObserver(function(mutations) {
+                mutations.forEach(function(mutation) {
+                    if (mutation.addedNodes.length) {
+                        styleCalendlyIframe();
+                    }
+                });
+            });
+
+            const calendlyContainer = document.querySelector('.calendly-inline-widget');
+            if (calendlyContainer) {
+                observer.observe(calendlyContainer, { childList: true, subtree: true });
+            }
+        });
+
+        // Re-apply on window resize
+        window.addEventListener('resize', function() {
+            styleCalendlyIframe();
+        });
+    </script>
 </body>
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40"
     display="none" width="0" height="0">

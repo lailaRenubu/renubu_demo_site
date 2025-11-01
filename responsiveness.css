@@ -11,25 +11,58 @@
 /* ===================== INTRO MEDIA QUERIES (starter) ===================== */
 @media (max-width: 1200px) {
     .intro-container {
-        --gutters: 3.25rem;
+        --gutters: 4rem;
         --pair-pull: 160px;
+        --intro-text-width: 55ch;
+        padding-inline: clamp(1.5rem, 4vw, 4rem);
     }
 
     .intro-container .intro-title h1 {
-        font-size: 2.7em;
+        font-size: clamp(2.2rem, 4.5vw, 3rem);
     }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1140px) {
+    .intro-container {
+        --gutters: 3rem;
+        --pair-pull: 100px;
+        padding-inline: clamp(1.5rem, 3.5vw, 3rem);
+    }
+
+    .intro-container .intro-title h1 {
+        font-size: clamp(2rem, 4vw, 2.7rem);
+    }
+
+    .intro-container .intro-text p {
+        font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+        padding-inline: 1rem;
+    }
+
+    .intro-container .intro-list li {
+        font-size: clamp(0.9rem, 1.6vw, 1.05rem);
+    }
+}
+
+@media (max-width: 1024px) {
     .intro-container {
         --grid-right: clamp(22rem, 34vw, 30rem);
         --pair-pull: 120px;
         --intro-text-width: 50ch;
         --intro-list-width: 36ch;
+        padding-inline: clamp(1.5rem, 3vw, 2.5rem);
     }
 
     .intro-container .intro-title h1 {
-        font-size: 2.4em;
+        font-size: clamp(1.8rem, 3.8vw, 2.4rem);
+    }
+
+    /* Hide the desktop right-card border/glow when image is hidden */
+    .intro-container .right-card::after {
+        display: none !important;
+    }
+
+    .intro-container .right-card {
+        display: none !important;
     }
 
 }
@@ -107,58 +140,180 @@
 /* tablets & down (≤1023px) */
 @media (max-width: 1023px) {
     .site-header {
-        padding: 1rem 2rem;
-        gap: 1rem;
+        padding: 0.75rem 1.5rem;
+        gap: 0.75rem;
+        min-height: auto;
     }
 
     .site-header .logo img {
-        height: 64px;
+        height: clamp(48px, 6vw, 56px);
+        max-height: 56px;
     }
 
     .chat-btn {
-        width: 9rem;
-        height: 3.25rem;
-        line-height: 3.25rem;
-        /* scale CTA slightly */
-        font-size: .95rem;
+        width: clamp(7.5rem, 10vw, 8.5rem);
+        height: 2.75rem;
+        line-height: 2.75rem;
+        font-size: clamp(0.8rem, 1.2vw, 0.9rem);
+        padding: 0 1rem;
     }
 
     .btn-icon {
-        width: 1.1em;
-        height: 1.1em;
-        margin-left: .4em;
+        width: 1em;
+        height: 1em;
+        margin-left: .35em;
+    }
+
+    /* Tablet intro text fixes */
+    .intro-container .intro-title h1 {
+        font-size: clamp(2.2rem, 4.5vw, 3rem) !important;
+        line-height: 1.15;
+    }
+
+    .intro-container .intro-text p {
+        font-size: clamp(1rem, 1.8vw, 1.15rem);
+    }
+
+    .intro-container .intro-list li {
+        font-size: clamp(0.95rem, 1.6vw, 1.05rem);
     }
 }
+
+/* Remove - now handled by expanded tablet portrait range below */
 
 /* phones+ (≤767px) */
 @media (max-width: 767px) {
     .site-header {
-        padding: .75rem 1.25rem;
+        padding: .65rem 1rem;
     }
 
     .site-header .logo img {
-        height: 56px;
+        height: clamp(44px, 7vw, 52px);
     }
 
     .chat-btn {
-        width: 8.5rem;
-        height: 3rem;
-        line-height: 3rem;
-        font-size: .9rem;
+        width: clamp(7rem, 12vw, 8rem);
+        height: clamp(2.5rem, 4vw, 2.75rem);
+        line-height: clamp(2.5rem, 4vw, 2.75rem);
+        font-size: clamp(0.75rem, 1.1vw, 0.85rem);
+    }
+
+    /* iPhone intro improvements */
+    .intro-container {
+        padding-inline: clamp(1rem, 4vw, 1.5rem) !important;
+    }
+
+    .intro-container .intro-title h1 {
+        font-size: clamp(1.5rem, 5vw, 2rem) !important;
+        line-height: 1.15;
+        margin-bottom: 0.75rem;
+    }
+
+    .intro-container .intro-text p {
+        font-size: clamp(0.875rem, 2vw, 1rem);
+        line-height: 1.5;
+        padding-inline: 0;
+        max-width: 90%;
+        margin-inline: auto;
+    }
+
+    .intro-container .intro-list li {
+        font-size: clamp(0.8rem, 1.8vw, 0.9rem);
+    }
+
+    /* Carousel cards: make them single column on small phones */
+    .old-resp .cards {
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .old-resp .card {
+        flex: 0 1 auto;
+        width: 100%;
+        max-width: 280px;
+        min-width: auto;
+    }
+
+    .old-resp .card img {
+        aspect-ratio: 16 / 10;
+        border-radius: 12px;
+    }
+
+    .old-resp .card p {
+        font-size: clamp(0.9rem, 2vw, 1rem);
     }
 }
 
 
 
+/* Global fluid typography improvements */
 @media (max-width: 1200px) {
     .title-display {
-        font-size: 2.7em;
+        font-size: clamp(2.2rem, 4vw, 2.7em);
+    }
+
+    h2 {
+        font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+    }
+
+    h3 {
+        font-size: clamp(1.4rem, 2.8vw, 2rem);
+    }
+
+    body, p {
+        font-size: clamp(0.95rem, 1.5vw, 1.1rem);
     }
 }
 
 @media (max-width: 1000px) {
     .title-display {
-        font-size: 2.4em;
+        font-size: clamp(2rem, 3.8vw, 2.4em);
+    }
+
+    h2 {
+        font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+    }
+
+    h3 {
+        font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+    }
+}
+
+@media (max-width: 767px) {
+    .title-display {
+        font-size: clamp(1.6rem, 5vw, 2rem) !important;
+    }
+
+    h2 {
+        font-size: clamp(1.4rem, 4.5vw, 1.9rem);
+    }
+
+    h3 {
+        font-size: clamp(1.2rem, 4vw, 1.6rem);
+    }
+
+    body, p {
+        font-size: clamp(0.875rem, 2vw, 1rem);
+    }
+}
+
+@media (max-width: 479px) {
+    .title-display {
+        font-size: clamp(1.35rem, 6vw, 1.75rem) !important;
+    }
+
+    h2 {
+        font-size: clamp(1.2rem, 5vw, 1.6rem);
+    }
+
+    h3 {
+        font-size: clamp(1.1rem, 4.5vw, 1.4rem);
+    }
+
+    body, p {
+        font-size: clamp(0.85rem, 2.5vw, 0.95rem);
     }
 }
 
@@ -215,35 +370,37 @@
 /* ----------------------------------------------------------------------------------------------------------------------------------  Small phones:     ≤479px   @media (max-width:  479px) { ... } */
 @media (max-width: 479px) {
     .site-header {
-        padding: .5rem 1rem;
-        gap: .75rem;
-        /* background-color: pink; */
+        padding: .5rem 0.75rem;
+        gap: .5rem;
     }
 
     .site-header .logo img {
-        height: 48px;
+        height: clamp(40px, 8.5vw, 48px);
     }
 
     .chat-btn {
-        width: 8rem;
-        height: 2.75rem;
-        line-height: 2.75rem;
-        font-size: .85rem;
+        width: clamp(6.5rem, 14vw, 7.5rem);
+        height: clamp(2.25rem, 5vw, 2.5rem);
+        line-height: clamp(2.25rem, 5vw, 2.5rem);
+        font-size: clamp(0.7rem, 1.2vw, 0.8rem);
+        padding: 0 0.75rem;
     }
 
     .btn-icon {
-        width: 1em;
-        height: 1em;
+        width: 0.9em;
+        height: 0.9em;
+    }
+
+    .intro-container {
+        padding-inline: clamp(0.75rem, 4vw, 1.25rem) !important;
     }
 
     .intro-container .intro-middle {
         grid-template-columns: 1fr;
-        /* stack left/right */
         column-gap: 0;
-        row-gap: 1.25rem;
+        row-gap: 1rem;
         height: auto;
-        /* allow content-height on phones */
-        padding: 0 1rem;
+        padding: 0 clamp(0.5rem, 3vw, 1rem);
     }
 
     .intro-container .intro-left {
@@ -253,33 +410,56 @@
     }
 
     .intro-container .intro-right {
-        /* padding-right: 0; */
-        /* visibility: hidden; */
         display: none;
+    }
+
+    /* Show .intro-right-other-screens but make it break out of container */
+    .intro-right-other-screens {
+        display: block !important;
+        width: 100vw;
+        margin-left: calc(50% - 50vw);
+        margin-right: calc(50% - 50vw);
+        overflow: visible;
+    }
+
+    .intro-right-other-screens .right-card {
+        width: calc(100% - 1rem);
+        max-width: none;
+        margin: 0 auto;
+        transform: scale(1.05);
+        overflow: visible;
+    }
+
+    .intro-right-other-screens .right-card img {
+        width: 100%;
+        height: auto;
+        display: block;
     }
 
     /* Title + copy sizing (use your vars, just smaller for phones) */
     .intro-container .intro-title {
-        margin: 0 0 1.25rem;
+        margin: 0 0 1rem;
     }
 
     .intro-container .intro-title h1 {
-        font-size: clamp(2rem, 8vw, 3rem);
-        /* was ~5em on desktop */
-        line-height: 1.2;
+        font-size: clamp(1.35rem, 7vw, 1.9rem) !important;
+        line-height: 1.15;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
 
     .intro-container .intro-text {
-        max-width: 36ch;
-        /* tighter measure on phones */
+        max-width: 38ch;
         margin-inline: auto;
         margin-top: 1rem;
+        padding-inline: 0.25rem;
     }
 
     .intro-container .intro-text p {
-        font-size: 1.05rem;
-        /* from var(--intro-p-size: 1.35em) */
+        font-size: clamp(0.85rem, 2.5vw, 0.95rem);
         line-height: 1.5;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
 
     /* List spacing/size */
@@ -921,9 +1101,9 @@
 /* ----------------------------------------------------------------------------------------------------------------------------------  Phones & down:    ≤767px   @media (max-width:  767px) { ... } */
 
 
-/* Tablet: 768–1023px */
-/* Tablet portrait only: remove bleed and keep everything inside the column */
-@media (min-width: 768px) and (max-width: 1023px) and (orientation: portrait) {
+/* Tablet: 768–1024px */
+/* Tablet portrait: smooth scaling across all tablet sizes */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
 
     /* #region --------------------------------------------- INTRO*/
     .intro-container {
@@ -933,6 +1113,10 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        /* Let content determine height naturally */
+        min-height: auto;
+        padding-block-start: clamp(2rem, 3vh, 3.5rem);
+        padding-block-end: clamp(1.5rem, 2.5vh, 2.5rem);
     }
 
     .intro-container .intro-right,
@@ -958,19 +1142,13 @@
             "list"
             "actions";
         height: auto;
-        /* align-items: start; */
-        min-height: 100svh;
-        /* modern mobile/tablet vh */
-        padding-block-start: 5vh;
-        /* padding-block-end: 28px; */
-        /* breathing room at top/bottom */
-        align-content: start;
-        /* << vertical centering of rows */
+        min-height: auto;
+        padding-block-start: clamp(1.5rem, 2vh + 0.5rem, 2.5rem);
+        padding-block-end: clamp(2rem, 3vh + 0.5rem, 3.5rem);
+        align-content: center;
         justify-items: center;
-        /* horizontal centering of each item */
-        /* row-gap: clamp(12px, 2.5vw, 22px); */
-        row-gap: 2.5vh;
-
+        row-gap: clamp(0.75rem, 1.5vh, 1.25rem);
+        padding-inline: 1.5rem;
     }
 
     /* 2) Flatten wrappers so their kids can be placed on the grid */
@@ -998,6 +1176,12 @@
     /* tablet image block */
     .intro-right-other-screens {
         grid-area: image;
+        width: 100%;
+        max-width: 700px;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 3rem;
+        padding-block: 1rem;
     }
 
     /* the list we want after the image */
@@ -1009,22 +1193,19 @@
     /* buttons last */
     .intro-buttons {
         grid-area: actions;
-        /* margin-block-start: -6px; pulls Buttons closer to List */
     }
 
-    /* Image constraints you already had (kept here for completeness) */
+    /* Image constraints - MUCH larger, break out of container like desktop */
     .intro-right-other-screens .right-card {
         width: 100%;
-        max-width: 70vw;
-        /* aspect-ratio: 16 / 9; */
-        margin-inline: auto;
-        overflow: hidden;
-
+        max-width: 650px;
+        margin-inline: 0;
+        overflow: visible;
         position: relative;
         border-radius: var(--card-radius, 14px);
         background: #fff;
-        /* or a subtle gradient if you like */
-        /* Solid purple border + soft outer glow */
+        /* Moderate scale to prevent overflow */
+        transform: scale(1.08);
         box-shadow:
             0 0 0 var(--card-border, 2px) var(--title-color, #2B136C),
             0 6px 24px rgba(43, 19, 108, 0.22),
@@ -1071,8 +1252,19 @@
 
     .intro-container .intro-middle .intro-title {
         margin-block-end: 0%;
-        font-size: 27px;
+    }
 
+    .intro-container .intro-middle .intro-title h1 {
+        font-size: clamp(3.4rem, 7.25vw, 5rem) !important;
+        line-height: 1.05;
+    }
+
+    .intro-container .intro-text p {
+        font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+    }
+
+    .intro-list-other-screens li {
+        font-size: clamp(1rem, 2vw, 1.2rem);
     }
 
     .intro-buttons {
@@ -1083,10 +1275,8 @@
 
     /* #region --------------------------------------------- REALITY */
     .reality-container {
-        padding: 3rem 1.5rem;
-        /* safe side gutters */
-        gap: 1.25rem;
-        /* if you use CSS gap on the section */
+        padding: 1.5rem 1.5rem;
+        gap: 1rem;
     }
 
     /* If you have a grid wrapper (mirror of intro) */
@@ -1200,6 +1390,9 @@
     /* #endregion */
 
     /* #region --------------------------------------------- CAROUSEL */
+    .carousel-container {
+        padding: 1.5rem 1.5rem;
+    }
 
     .card {
         min-width:150px;
@@ -1218,54 +1411,112 @@
     /* #endregion */
 
     /* #region --------------------------------------------- NEW APPROACH */
+    .need-new-container {
+        padding: 1.5rem 1.5rem;
+    }
+
     .need-new-cards {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
+    }
 
-      .need-new-right{
-        display: none;
-      }
+    /* Increase stat box size on tablets */
+    .need-new-card .stat-box {
+        width: clamp(6rem, 18vw, 9rem);
+        height: clamp(6rem, 18vw, 9rem);
+        font-size: clamp(2rem, 5vw, 3rem);
+    }
+
+    /* Hide vector image on smaller tablets, show on larger */
+    @media (max-width: 899px) {
+        .need-new-right {
+            display: none;
+        }
+    }
+
+    @media (min-width: 900px) {
+        .need-new-right {
+            display: block;
+        }
+    }
     /* #endregion */
-    
+
     /* #region --------------------------------------------- REINTRO */
+    .reintro-container {
+        padding: 1.5rem 1.5rem !important;
+        height: 68vh !important;
+        min-height: 68vh !important;
+        margin-block: 2rem !important;
+        --img-top: 32%;
+    }
     /* #endregion */
-    
-    /* #region --------------------------------------------- HOW IT WORKS */
-    .how-it-works-container .how-cards {
-        display: grid !important;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 1.25rem;
-        overflow: visible;          /* remove hidden to allow equal heights/bleeds */
-        max-width: 100%;
-      }
-      .how-it-works-container .how-card {
-        flex: initial !important;
-        max-width: none !important;
-        width: 100%;
-        height: 100%;
-      }
-    
-      /* make video span full card width nicely */
-      .how-it-works-container .how-card .loop-vid {
-        width: 100%;
-        aspect-ratio: 16 / 9;       /* or keep your vars if you prefer square */
-        /* background-color: #2B136C; */
-      }
 
-      .how-it-works-container .how-card .loop-vid .loop-vid__media{
+    /* #region --------------------------------------------- HOW IT WORKS */
+    .how-it-works-container {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        padding-inline: clamp(1.5rem, 4vw, 3rem);
+        min-height: auto;
+        gap: 2rem;
+    }
+
+    .how-it-works-title h2 {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        margin-bottom: 1.5rem;
+    }
+
+    /* Responsive grid: 2 columns on most tablets */
+    .how-cards {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(280px, 1fr));
+        gap: 1.5rem;
+        max-width: 100%;
+        width: 100%;
+    }
+
+    /* Single column if viewport too narrow */
+    @media (max-width: 640px) {
+        .how-cards {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .how-card {
+        width: 100%;
+        max-width: none;
+        padding: 1.5rem;
+        min-height: 280px;
+        flex: initial !important;
+    }
+
+    .how-card h3 {
+        font-size: clamp(1.3rem, 3vw, 1.8rem);
+    }
+
+    .how-card p {
+        font-size: clamp(0.95rem, 2vw, 1.1rem);
+    }
+
+    .how-card .loop-vid {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto 1rem;
+        aspect-ratio: 16 / 9;
+    }
+
+    .how-card .loop-vid .loop-vid__media {
         background-color: #f2f2fa;
-      }
+    }
     /* #endregion */
    
     /* #region --------------------------------------------- CALENDLY */
+    #calendly-container {
+        padding: 1.5rem 1.5rem;
+    }
+
     .calendly-title h1 {
-
-    
         line-height: 1.25;
-
-
         margin-bottom: 1rem;
-        margin-top: 1.5rem;
+        margin-top: 1rem;
     }
 
     .calendly-left h4, .calendly-right h3 {
@@ -1283,20 +1534,126 @@
         gap: 0.5rem;
     }
 
-    .calendly-right{
-        /* background-color: pink; */
+    .calendly-right {
         display: flex;
         flex-direction: column;
-        /* row-gap: 3rem; */
+        margin-top: 2.5rem;
+    }
+
+    .calendly-right h3 {
+        margin-bottom: 0.5rem;
+    }
+
+    /* Fix contact form styling to match other offwhite sections */
+    .design-partner-application-boxes {
+        background: transparent !important;
+        box-shadow: none !important;
+        padding: 0;
+    }
+
+    .calendly-left {
+        background: transparent !important;
+        box-shadow: none !important;
+    }
+
+    /* Fix for grey placeholder: adjust Calendly widget on tablet portrait */
+    .calendly-middle {
+        flex-direction: column !important;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .calendly-widget {
+        width: 100%;
+        max-width: 700px;
+        margin-top: 0.5rem;
+    }
+
+    /* Calendly fixes: no scroll, no border */
+    .calendly-inline-widget {
+        overflow: hidden !important;
+    }
+
+    /* Set iframe height directly - 600px for most tablets */
+    .calendly-inline-widget iframe {
+        height: 600px !important;
+        border: none !important;
+        border-radius: 0 !important;
+    }
+
+    /* Specific height for ~820px width (iPad Air) */
+    @media (min-width: 800px) and (max-width: 850px) {
+        .calendly-inline-widget iframe {
+            height: 735px !important;
+        }
+
+        /* Center the iframe content vertically */
+        .calendly-inline-widget {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+    }
+
+    /* Match website background color (light lavender/off-white) */
+    #calendly-container,
+    .calendly-container,
+    .calendly-widget,
+    .calendly-inline-widget {
+        background: #f2f2fa !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+    .calendly-container {
+        padding-bottom: 2rem !important;
+    }
+
+    /* Fix centering and width at 1024px */
+    @media (min-width: 1024px) {
+        .calendly-middle {
+            flex-direction: row !important;
+            justify-content: center;
+            align-items: flex-start;
+            max-width: 100%;
+        }
+
+        .calendly-widget {
+            max-width: 100%;
+            flex: 1;
+        }
+
+        .calendly-inline-widget {
+            width: 100% !important;
+        }
     }
     /* #endregion */
-   
+
     /* #region --------------------------------------------- FOOTER */
+    footer {
+        padding: 1.5rem 1rem 1rem !important;
+        gap: 0.75rem;
+    }
+
+    #calendly-container {
+        margin-bottom: 0 !important;
+    }
+
+    body {
+        padding-bottom: 0 !important;
+    }
     /* #endregion */
+}
+
+/* Tablet landscape: try 3 columns for How It Works if space allows */
+@media (min-width: 900px) and (max-width: 1023px) and (orientation: landscape) {
+    .how-cards {
+        grid-template-columns: repeat(3, minmax(220px, 1fr)) !important;
+    }
 }
 
 
 
-/* 
+/*
   For tablet, I would like to forgo the bleed while in protrait mode, and instead just have the image appear in the column and have the overflow disapper. 
   */
