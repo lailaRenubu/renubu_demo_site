@@ -1,0 +1,59 @@
+# Renubu - Expansion Intelligence Platform
+
+## Company Overview
+Renubu is an AI-powered Expansion Intelligence Platform designed for Customer Success teams. We help businesses optimize their renewal processes, discover expansion opportunities, and make data-driven pricing decisions to maximize revenue growth.
+
+## Product
+Renubu provides an intelligent platform that:
+- Automates renewal busywork, saving Customer Success teams two days per week
+- Delivers data-driven pricing recommendations for optimal deal structuring
+- Surfaces hidden expansion opportunities across your customer base
+- Streamlines the renewal workflow with intelligent automation
+- Provides actionable insights for revenue growth
+
+## Target Audience
+- Customer Success teams at B2B SaaS companies
+- Revenue Operations leaders
+- Account Management teams managing renewals
+- Growth-focused executives seeking expansion revenue
+- Companies looking to reduce churn and increase customer lifetime value
+
+## Value Proposition
+Customer Success teams spend too much time on manual renewal processes while missing valuable expansion opportunities. Renubu's Expansion Intelligence Platform automates the busywork and uses AI to identify optimal pricing and expansion opportunities, helping teams focus on high-value customer relationships and revenue growth.
+
+## Key Benefits
+- **Save Time**: Reduce renewal busywork by 2 days per week through intelligent automation
+- **Optimize Pricing**: Get data-driven recommendations for pricing decisions
+- **Find Hidden Opportunities**: Surface expansion opportunities you're currently missing
+- **Increase Revenue**: Maximize expansion revenue with intelligent insights
+- **Reduce Churn**: Proactive renewal management reduces customer attrition
+
+## Use Cases
+1. **Renewal Automation**: Streamline manual renewal processes with intelligent workflows
+2. **Expansion Planning**: Identify upsell and cross-sell opportunities across your customer base
+3. **Pricing Optimization**: Make confident pricing decisions based on data insights
+4. **Customer Success Efficiency**: Free up CS teams to focus on strategic customer relationships
+5. **Revenue Growth**: Systematically identify and capture expansion revenue opportunities
+
+## Design Partner Program
+Renubu is currently seeking 3-5 design partners to help build the ultimate Expansion Intelligence Platform. Design partners get:
+- Early access to the platform
+- Direct influence on product development
+- Dedicated support and partnership
+- Special pricing and terms
+
+## Contact
+Website: https://renubu.com
+Schedule a consultation to learn how Renubu can help your Customer Success team save time and grow revenue.
+
+## Platform Features
+- AI-powered renewal workflow automation
+- Intelligent pricing recommendation engine
+- Expansion opportunity identification
+- Customer health scoring and insights
+- Integration with existing CS tools and CRM systems
+- Analytics and reporting dashboard
+- Automated alerts and notifications
+
+## Built For Growth. Designed For Value.
+Renubu combines intelligent automation with actionable insights to help Customer Success teams work smarter, not harder. Our platform is built specifically for the challenges of modern B2B SaaS renewal and expansion management.
